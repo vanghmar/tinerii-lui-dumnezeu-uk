@@ -5,13 +5,12 @@ export const gallery: GalleryImage[] = [
   // ── 09 Mai 2026 — Biserica lui Hristos din Leyton, Londra ─────────────────
 
   {
-    src: "/gallery/2026-05-london/photo-2026-05-09-12-46-43.jpg",
+    src: "/gallery/2026-05-london/photo-2026-05-09-13-02-06.jpg",
     alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" },
     eventSlug: "2026-05-london",
     section: { ro: "09 Mai 2026 — Leyton, Londra", en: "9 May 2026 — Leyton, London" },
     consentChecked: true,
   },
-  { src: "/gallery/2026-05-london/photo-2026-05-09-13-02-06.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-05-london", consentChecked: true },
   { src: "/gallery/2026-05-london/photo-2026-05-09-13-31-26.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-london", consentChecked: true },
   { src: "/gallery/2026-05-london/photo-2026-05-09-13-31-44.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-london", consentChecked: true },
   { src: "/gallery/2026-05-london/photo-2026-05-09-17-48-39.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-05-london", consentChecked: true },
