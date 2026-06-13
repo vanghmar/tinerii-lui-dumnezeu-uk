@@ -12,6 +12,7 @@ export interface Church {
   socials?: { facebook?: string; instagram?: string; youtube?: string };
   description: Localized;
   image?: string;
+  images?: string[]; // additional photos shown on the detail page
 }
 
 export interface GalleryImage {
