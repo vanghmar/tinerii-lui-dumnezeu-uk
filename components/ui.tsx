@@ -78,3 +78,13 @@ export function Heading({ children }: { children: ReactNode }) {
     <h2 className="font-serif text-3xl sm:text-4xl text-stone-800 mt-2 border-l-4 border-orange-500 pl-4">{children}</h2>
   );
 }
+
+export function Divider() {
+  return (
+    <div className="flex items-center justify-center gap-4 my-8 sm:my-10">
+      <div className="flex-1 h-px bg-stone-200/70" />
+      <div className="text-stone-300 text-xs font-medium tracking-widest">•</div>
+      <div className="flex-1 h-px bg-stone-200/70" />
+    </div>
+  );
+}
