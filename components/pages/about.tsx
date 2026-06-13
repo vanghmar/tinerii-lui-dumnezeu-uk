@@ -28,19 +28,19 @@ const copy = {
 export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <>
-      <SectionBand tint>
+      <SectionBand tint size="tall">
         <Eyebrow>{t(copy.eyebrow, locale)}</Eyebrow>
-        <h1 className="font-serif text-4xl text-stone-800 mt-3">{t(copy.title, locale)}</h1>
+        <h1 className="font-serif text-4xl sm:text-5xl text-stone-800 mt-3">{t(copy.title, locale)}</h1>
       </SectionBand>
       <SectionBand>
         <div className="max-w-2xl space-y-5 text-stone-600 leading-relaxed">
-          <p>{t(copy.p1, locale)}</p>
+          <p className="text-lg text-stone-700 leading-relaxed">{t(copy.p1, locale)}</p>
           <p>{t(copy.p2, locale)}</p>
         </div>
         <div className="max-w-2xl mt-10">
           <h2 className="font-serif text-2xl text-stone-800">{t(copy.whyTitle, locale)}</h2>
           <p className="text-stone-600 leading-relaxed mt-3">{t(copy.why, locale)}</p>
-          <blockquote className="font-serif text-lg text-orange-700 mt-5 border-l-2 border-orange-200 pl-4">
+          <blockquote className="font-serif text-xl italic text-orange-700 mt-6 border-l-4 border-orange-300 pl-5 py-1">
             {t(copy.verse, locale)}
           </blockquote>
         </div>

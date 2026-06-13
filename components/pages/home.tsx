@@ -51,12 +51,12 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <SectionBand tint className="text-center">
+      <SectionBand tint size="tall" className="text-center">
         <Eyebrow>Tinerii lui Dumnezeu UK</Eyebrow>
-        <h1 className="font-serif text-4xl sm:text-5xl text-stone-800 mt-3">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-stone-800 mt-3">
           {t(copy.heroTitle, locale)}
         </h1>
-        <p className="text-stone-600 mt-4 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-stone-600 mt-5 max-w-2xl mx-auto leading-relaxed">
           {t(copy.heroSub, locale)}
         </p>
         <div className="flex flex-wrap justify-center gap-3 mt-7">
@@ -151,10 +151,10 @@ export function HomePage({ locale }: { locale: Locale }) {
         </Link>
       </SectionBand>
 
-      <section className="bg-orange-600">
-        <div className="mx-auto max-w-5xl px-5 py-12 text-center">
-          <p className="font-serif text-2xl text-orange-50">{t(copy.joinTitle, locale)}</p>
-          <div className="mt-5">
+      <section className="bg-gradient-to-br from-orange-600 to-orange-700">
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:py-16 text-center">
+          <p className="font-serif text-2xl sm:text-3xl text-orange-50">{t(copy.joinTitle, locale)}</p>
+          <div className="mt-6">
             <ButtonLink href={localePath(locale, "/alatura-te")} variant="white">
               {t(copy.join, locale)}
             </ButtonLink>

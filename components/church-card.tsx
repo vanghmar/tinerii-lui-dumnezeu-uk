@@ -3,6 +3,7 @@ import { events } from "@/data/events";
 import { formatEventDate } from "@/lib/events";
 import { t, type Locale } from "@/lib/i18n";
 import { Card } from "./ui";
+import { MapPinIcon } from "./icons";
 
 export function ChurchCard({ church, locale }: { church: Church; locale: Locale }) {
   const hosted = events
@@ -12,7 +13,10 @@ export function ChurchCard({ church, locale }: { church: Church; locale: Locale 
   return (
     <Card>
       <h3 className="font-serif text-xl text-stone-800">{church.name}</h3>
-      <p className="text-sm text-orange-700">{church.city}</p>
+      <p className="flex items-center gap-1.5 text-sm text-orange-700">
+        <MapPinIcon className="w-4 h-4 shrink-0" />
+        {church.city}
+      </p>
       <p className="text-sm text-stone-600 mt-2">{t(church.description, locale)}</p>
       <dl className="mt-3 space-y-1 text-sm text-stone-500">
         <div>

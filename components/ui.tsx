@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 const pill =
   "inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-200 ease-out hover:scale-105 hover:shadow-lg";
@@ -29,13 +29,16 @@ export function Card({
   children,
   highlight = false,
   className = "",
+  style,
 }: {
   children: ReactNode;
   highlight?: boolean;
   className?: string;
+  style?: CSSProperties;
 }) {
   return (
     <div
+      style={style}
       className={`rounded-2xl bg-white p-6 border transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-1 ${
         highlight ? "border-orange-300 shadow-md" : "border-stone-200/70 shadow-sm"
       } ${className}`}
@@ -48,15 +51,22 @@ export function Card({
 export function SectionBand({
   children,
   tint = false,
+  size = "normal",
   className = "",
 }: {
   children: ReactNode;
   tint?: boolean;
+  size?: "compact" | "normal" | "tall";
   className?: string;
 }) {
+  const pad = {
+    compact: "py-8 sm:py-12",
+    normal: "py-14 sm:py-20",
+    tall: "py-20 sm:py-28",
+  };
   return (
     <section className={`border-t border-stone-200/50 ${tint ? "bg-orange-50" : "bg-white"} ${className}`}>
-      <div className="mx-auto max-w-5xl px-5 py-14 sm:py-20">{children}</div>
+      <div className={`mx-auto max-w-5xl px-5 ${pad[size]}`}>{children}</div>
     </section>
   );
 }

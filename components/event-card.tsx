@@ -4,6 +4,7 @@ import { getChurch } from "@/data/churches";
 import { formatEventDate, formatEventTime, daysUntil } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Card, Eyebrow } from "./ui";
+import { CalendarIcon, ArrowRightIcon } from "./icons";
 
 export function EventCard({
   event,
@@ -22,7 +23,10 @@ export function EventCard({
 
   return (
     <Card highlight={highlight}>
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      <div className="flex items-start justify-between gap-3">
+        <div>{eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}</div>
+        <CalendarIcon className="w-5 h-5 text-orange-400 shrink-0" />
+      </div>
       <h3 className="font-serif text-xl text-stone-800 mt-1.5">{t(event.title, locale)}</h3>
       <p className="text-sm text-stone-500 mt-1 capitalize">
         {formatEventDate(event.date, locale)} · {formatEventTime(event.date)}
@@ -48,9 +52,10 @@ export function EventCard({
       )}
       <Link
         href={localePath(locale, `/evenimente/${event.slug}`)}
-        className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-3"
+        className="group inline-flex items-center gap-1.5 text-sm text-orange-700 hover:text-orange-800 mt-3"
       >
-        {locale === "ro" ? "Vezi detalii →" : "View details →"}
+        {locale === "ro" ? "Vezi detalii" : "View details"}
+        <ArrowRightIcon className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
       </Link>
     </Card>
   );
