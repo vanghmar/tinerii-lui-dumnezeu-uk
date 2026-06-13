@@ -122,12 +122,13 @@ export function HomePage({ locale }: { locale: Locale }) {
         <Heading>{t(copy.churchesTitle, locale)}</Heading>
         <div className="flex flex-wrap gap-3 mt-6">
           {churches.map((c) => (
-            <span
+            <Link
               key={c.id}
-              className="rounded-full bg-white border border-stone-200/70 px-4 py-2 text-sm text-stone-600"
+              href={localePath(locale, `/biserici/${c.id}`)}
+              className="rounded-full bg-white border border-stone-200/70 px-4 py-2 text-sm text-stone-600 hover:border-orange-300 hover:text-orange-700 transition-colors duration-200"
             >
               {c.name} · <span className="text-orange-700">{c.city}</span>
-            </span>
+            </Link>
           ))}
         </div>
         <Link
