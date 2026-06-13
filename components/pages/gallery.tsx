@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { gallery } from "@/data/gallery";
 import { t, type Locale } from "@/lib/i18n";
 import { Eyebrow, SectionBand } from "@/components/ui";
@@ -20,9 +21,22 @@ export function GalleryPage({ locale }: { locale: Locale }) {
   return (
     <>
       <SectionBand tint>
-        <Eyebrow>{t(copy.eyebrow, locale)}</Eyebrow>
-        <h1 className="font-serif text-4xl text-stone-800 mt-3">{t(copy.title, locale)}</h1>
-        <p className="text-stone-600 mt-4 max-w-2xl">{t(copy.intro, locale)}</p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-8">
+          <div className="flex-1">
+            <Eyebrow>{t(copy.eyebrow, locale)}</Eyebrow>
+            <h1 className="font-serif text-4xl text-stone-800 mt-3">{t(copy.title, locale)}</h1>
+            <p className="text-stone-600 mt-4 max-w-2xl">{t(copy.intro, locale)}</p>
+          </div>
+          <div className="relative w-52 h-52 shrink-0 rounded-2xl overflow-hidden shadow-md rotate-2 mx-auto sm:mx-0">
+            <Image
+              src="/gallery/2026-05-london/photo-2026-05-09-12-46-43.jpg"
+              alt="Tinerii lui Dumnezeu"
+              fill
+              className="object-cover"
+              sizes="208px"
+            />
+          </div>
+        </div>
       </SectionBand>
       <SectionBand>
         <GalleryGrid images={gallery} locale={locale} />
