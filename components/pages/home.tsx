@@ -84,7 +84,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p className="text-stone-600 mt-3 leading-relaxed">{t(copy.whoText, locale)}</p>
             <Link
               href={localePath(locale, "/despre")}
-              className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-3"
+              className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-3 link-underline"
             >
               {t(copy.readMore, locale)}
             </Link>
@@ -97,8 +97,8 @@ export function HomePage({ locale }: { locale: Locale }) {
           <Heading>{t(copy.whyTitle, locale)}</Heading>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-          {pillars.map((p) => (
-            <Card key={p.title.en} className="text-center">
+          {pillars.map((p, i) => (
+            <Card key={p.title.en} className="text-center animate-in-up" style={{ animationDelay: `${i * 100}ms` }}>
               <div className="text-2xl" aria-hidden>
                 {p.icon}
               </div>
@@ -132,7 +132,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
         <Link
           href={localePath(locale, "/biserici")}
-          className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-5"
+          className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-5 link-underline"
         >
           {t(copy.allChurches, locale)}
         </Link>
@@ -145,7 +145,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
         <Link
           href={localePath(locale, "/galerie")}
-          className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-5"
+          className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-5 link-underline"
         >
           {t(copy.fullGallery, locale)}
         </Link>

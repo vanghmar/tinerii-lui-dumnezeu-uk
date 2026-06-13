@@ -65,14 +65,14 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                     key={img.src}
                     type="button"
                     onClick={() => setOpen(img)}
-                    className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100"
+                    className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                   >
                     <Image
                       src={img.src}
                       alt={img.alt[locale]}
                       fill
                       sizes="(max-width: 640px) 50vw, 33vw"
-                      className="object-cover"
+                      className="object-cover transition-all duration-300 hover:scale-105"
                     />
                   </button>
                 ))}
@@ -84,12 +84,12 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
 
       {open && (
         <div
-          className="fixed inset-0 z-50 bg-stone-900/80 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-stone-900/80 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setOpen(null)}
           role="dialog"
           aria-label={open.alt[locale]}
         >
-          <div className="relative w-full max-w-3xl aspect-[4/3]">
+          <div className="relative w-full max-w-3xl aspect-[4/3] animate-fade-in" style={{ animationDelay: "100ms" }}>
             <Image src={open.src} alt={open.alt[locale]} fill className="object-contain" />
           </div>
         </div>
