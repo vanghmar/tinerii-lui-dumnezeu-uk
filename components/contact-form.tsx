@@ -66,7 +66,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
   }
 
   const input =
-    "w-full rounded-xl border border-stone-200 px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-orange-400";
+    "w-full rounded-xl border border-stone-200 px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 transition-all duration-200 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-300 focus:shadow-sm";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -93,7 +93,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex items-center rounded-full bg-orange-600 px-6 py-2.5 text-sm font-medium text-orange-50 hover:bg-orange-700 disabled:opacity-60"
+        className="inline-flex items-center rounded-full bg-orange-600 px-6 py-2.5 text-sm font-medium text-orange-50 transition-all duration-200 ease-out hover:bg-orange-700 hover:scale-105 hover:shadow-lg disabled:opacity-60 disabled:hover:scale-100 disabled:hover:shadow-none"
       >
         {status === "sending" ? labels.sending[locale] : labels.send[locale]}
       </button>
