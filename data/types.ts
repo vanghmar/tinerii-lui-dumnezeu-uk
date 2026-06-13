@@ -18,6 +18,8 @@ export interface GalleryImage {
   src: string;
   alt: Localized;
   eventSlug?: string;
+  /** Set only on the FIRST photo of a section — renders a heading above it */
+  section?: Localized;
   // literal true — every published photo requires a conscious consent check
   consentChecked: true;
 }
