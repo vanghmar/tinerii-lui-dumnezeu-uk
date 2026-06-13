@@ -42,9 +42,6 @@ function Footer({ locale }: { locale: Locale }) {
             ? "„Iată ce plăcut și ce dulce este să locuiască frații împreună!” — Psalmul 133:1"
             : "“How good and pleasant it is when God's people live together in unity!” — Psalm 133:1"}
         </p>
-        <p className="text-xs text-stone-400">
-          {locale === "ro" ? "Site realizat de" : "Site built by"} Marian V.
-        </p>
       </div>
     </footer>
   );
