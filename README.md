@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tinerii lui Dumnezeu UK — website
 
-## Getting Started
+Site-ul mișcării de tineret a bisericilor baptiste române din UK.
+Static Next.js site — no database. All content lives in `data/`.
 
-First, run the development server:
+## How to update content
+
+1. **New event**: add an object to `data/events.ts` (copy an existing one). Status (upcoming/past) is automatic from the date.
+2. **After an event**: edit the same event — add `summary` and `photos`.
+3. **Churches**: edit `data/churches.ts`. ⚠️ Current entries are SAMPLE data — replace with pastor-approved details.
+4. **Photos**: put files in `public/gallery/`, then list them in `data/gallery.ts` (or in an event's `photos`). Every entry requires `consentChecked: true` — only set it after the consent process below.
+5. Deploy: `git add -A && git commit -m "update" && git push` (Vercel auto-deploys), or `npx vercel --prod`.
+
+## Photo consent process (do not skip)
+
+1. Curate candidates (prefer wide group shots; no close-ups of identifiable minors).
+2. Pastor/organiser reviews the set.
+3. Parents confirm for any identifiable minor.
+4. Strip metadata: `exiftool -all= photo.jpg` (or export via Preview/sips).
+5. Never attach full names to photos of young people.
+6. Removal requests: delete from the data file and redeploy within 24h.
+
+Announcement for events:
+> „La întâlnirile noastre facem fotografii care pot apărea pe site-ul și paginile noastre. Dacă nu doriți ca dumneavoastră sau copilul dumneavoastră să apară în fotografii publicate, vă rugăm să anunțați un organizator. Fotografiile cu minori în prim-plan sunt publicate doar cu acordul părinților."
+
+## Before launch checklist
+
+- [ ] Replace sample churches and events with real, approved data
+- [ ] Set the real contact email in `components/contact-form.tsx` (and webhook URL when ready)
+- [ ] Update the domain in `app/sitemap.ts`
+- [ ] Pastor review of all church entries
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev    # local dev at http://localhost:3000
+npm run build  # production build (all pages static)
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
