@@ -2,18 +2,19 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { nav, localePath, type Locale } from "@/lib/i18n";
 import { LangToggle } from "./lang-toggle";
+import { MobileNav } from "./mobile-nav";
 
 function Header({ locale }: { locale: Locale }) {
   return (
-    <header className="border-b border-stone-200/70 bg-white">
-      <div className="mx-auto max-w-5xl px-5 py-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+    <header className="border-b border-stone-200/70 bg-white relative z-50">
+      <div className="mx-auto max-w-5xl px-5 py-4 flex items-center gap-x-6">
         <Link href={localePath(locale, "/")} className="mr-auto">
           <span className="font-serif text-lg text-stone-800 leading-tight">
             Tinerii lui Dumnezeu{" "}
             <span className="text-orange-700">UK</span>
           </span>
         </Link>
-        <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-stone-600">
+        <nav className="hidden md:flex items-center gap-x-5 text-sm text-stone-600">
           {nav.map((item) => (
             <Link
               key={item.path}
@@ -25,6 +26,7 @@ function Header({ locale }: { locale: Locale }) {
           ))}
           <LangToggle locale={locale} />
         </nav>
+        <MobileNav locale={locale} />
       </div>
     </header>
   );
