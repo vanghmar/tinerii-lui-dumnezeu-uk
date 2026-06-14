@@ -22,12 +22,12 @@ export function GalleryPage({ locale }: { locale: Locale }) {
     <>
       <SectionBand tint>
         <div className="flex flex-col sm:flex-row sm:items-center gap-8">
-          <div className="flex-1">
+          <div className="max-w-xs">
             <Eyebrow>{t(copy.eyebrow, locale)}</Eyebrow>
             <h1 className="font-serif text-4xl text-stone-800 mt-3">{t(copy.title, locale)}</h1>
-            <p className="text-stone-600 mt-4 max-w-2xl">{t(copy.intro, locale)}</p>
+            <p className="text-stone-600 mt-4">{t(copy.intro, locale)}</p>
           </div>
-          <div className="relative w-72 h-48 shrink-0 rounded-2xl overflow-hidden shadow-md rotate-2 mx-auto sm:mx-0">
+          <div className="relative flex-1 h-56 sm:h-64 shrink-0 rounded-2xl overflow-hidden shadow-md rotate-2 mx-auto sm:mx-0">
             <Image
               src="/gallery/2026-05-london/photo-2026-05-09-12-46-43.jpg"
               alt="Tinerii lui Dumnezeu"
