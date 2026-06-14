@@ -14,7 +14,6 @@ export const churches: Church[] = [
       ro: "O comunitate română baptistă din High Wycombe, parte a familiei Tinerii lui Dumnezeu UK.",
       en: "A Romanian Baptist community in High Wycombe, part of the Tinerii lui Dumnezeu UK family.",
     },
-    image: "/churches/viata-noua-high-wycombe.jpg",
   },
   {
     id: "connected-life-birmingham",
@@ -39,7 +38,6 @@ export const churches: Church[] = [
       ro: "Comunitate românească baptistă din Hemel Hempstead, unită în așteptarea revenirii Domnului.",
       en: "A Romanian Baptist community in Hemel Hempstead, united in awaiting the Lord's return.",
     },
-    image: "/churches/maranata-hemel-hempstead.jpg",
   },
   {
     id: "hristos-leyton-london",
@@ -76,7 +74,6 @@ export const churches: Church[] = [
       ro: "Comunitate românească baptistă din Ipswich, parte activă a mișcării de tineret.",
       en: "A Romanian Baptist community in Ipswich, an active part of the youth movement.",
     },
-    image: "/churches/ekklesia-ipswich.jpg",
   },
 ];
 
