@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { churches } from "@/data/churches";
 import { gallery } from "@/data/gallery";
@@ -51,23 +52,36 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <SectionBand tint size="tall" className="text-center">
-        <Eyebrow>Tinerii lui Dumnezeu UK</Eyebrow>
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-stone-800 mt-3">
-          {t(copy.heroTitle, locale)}
-        </h1>
-        <p className="text-lg text-stone-600 mt-5 max-w-2xl mx-auto leading-relaxed">
-          {t(copy.heroSub, locale)}
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 mt-7">
-          <ButtonLink href={localePath(locale, "/evenimente")}>
-            {t(copy.nextEvent, locale)}
-          </ButtonLink>
-          <ButtonLink href={localePath(locale, "/despre")} variant="outline">
-            {t(copy.about, locale)}
-          </ButtonLink>
+      <section className="relative overflow-hidden border-t border-stone-200/50">
+        <Image
+          src="/images/hero-youth-meeting.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/75 via-stone-900/55 to-stone-900/75" />
+        <div className="relative z-10 mx-auto max-w-5xl px-5 py-20 sm:py-28 text-center">
+          <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-orange-300">
+            Tinerii lui Dumnezeu UK
+          </p>
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white mt-3">
+            {t(copy.heroTitle, locale)}
+          </h1>
+          <p className="text-lg text-stone-100 mt-5 max-w-2xl mx-auto leading-relaxed">
+            {t(copy.heroSub, locale)}
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mt-7">
+            <ButtonLink href={localePath(locale, "/evenimente")}>
+              {t(copy.nextEvent, locale)}
+            </ButtonLink>
+            <ButtonLink href={localePath(locale, "/despre")} variant="white">
+              {t(copy.about, locale)}
+            </ButtonLink>
+          </div>
         </div>
-      </SectionBand>
+      </section>
 
       <SectionBand>
         <div className="grid sm:grid-cols-2 gap-6 items-start">
