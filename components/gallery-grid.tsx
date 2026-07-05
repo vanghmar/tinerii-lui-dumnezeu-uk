@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import type { GalleryImage } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 import { ChevronIcon, CloseIcon } from "@/components/icons";
 
 export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale: Locale }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const touchStartX = useRef<number | null>(null);
 
   const goNext = () => {
     if (openIndex === null) return;
@@ -110,24 +109,12 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
           onClick={() => setOpenIndex(null)}
           role="dialog"
           aria-label={open.alt[locale]}
-          onTouchStart={(e) => {
-            touchStartX.current = e.touches[0].clientX;
-          }}
-          onTouchEnd={(e) => {
-            if (touchStartX.current === null) return;
-            const delta = e.changedTouches[0].clientX - touchStartX.current;
-            if (Math.abs(delta) > 50) {
-              if (delta < 0) goNext();
-              else goPrev();
-            }
-            touchStartX.current = null;
-          }}
         >
           <button
             type="button"
             onClick={() => setOpenIndex(null)}
             aria-label={locale === "ro" ? "Închide" : "Close"}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white transition-colors duration-200 p-2"
+            className="absolute z-10 top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white transition-colors duration-200 p-2"
           >
             <CloseIcon className="w-7 h-7" />
           </button>
@@ -139,14 +126,13 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
               goPrev();
             }}
             aria-label={locale === "ro" ? "Fotografia anterioară" : "Previous photo"}
-            className="absolute left-1 sm:left-4 text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 sm:p-3 bg-black/0 hover:bg-black/20 rounded-full"
+            className="absolute z-10 left-1 sm:left-4 text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 sm:p-3 bg-black/0 hover:bg-black/20 rounded-full"
           >
             <ChevronIcon className="w-7 h-7 sm:w-9 sm:h-9" />
           </button>
 
           <div
-            key={open.src}
-            className="relative w-full max-w-3xl aspect-[4/3] animate-fade-in"
+            className="relative w-full max-w-3xl aspect-[4/3]"
             onClick={(e) => e.stopPropagation()}
           >
             <Image src={open.src} alt={open.alt[locale]} fill className="object-contain" />
@@ -159,12 +145,12 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
               goNext();
             }}
             aria-label={locale === "ro" ? "Fotografia următoare" : "Next photo"}
-            className="absolute right-1 sm:right-4 text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 sm:p-3 bg-black/0 hover:bg-black/20 rounded-full rotate-180"
+            className="absolute z-10 right-1 sm:right-4 text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 sm:p-3 bg-black/0 hover:bg-black/20 rounded-full rotate-180"
           >
             <ChevronIcon className="w-7 h-7 sm:w-9 sm:h-9" />
           </button>
 
-          <p className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm tabular-nums">
+          <p className="absolute z-10 bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm tabular-nums">
             {openIndex + 1} / {images.length}
           </p>
         </div>
