@@ -1,12 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { GalleryImage } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
+import { ChevronIcon, CloseIcon } from "@/components/icons";
 
 export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale: Locale }) {
-  const [open, setOpen] = useState<GalleryImage | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const goNext = () => {
+    if (openIndex === null) return;
+    setOpenIndex((openIndex + 1) % images.length);
+  };
+
+  const goPrev = () => {
+    if (openIndex === null) return;
+    setOpenIndex((openIndex - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    if (openIndex === null) return;
+
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenIndex(null);
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openIndex]);
 
   if (images.length === 0) {
     return (
@@ -23,17 +52,7 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
     );
   }
 
-  // Build render list: inject section headers before the first photo of each section
-  const items: Array<{ type: "header"; label: string } | { type: "photo"; img: GalleryImage }> = [];
-  for (const img of images) {
-    if (img.section) {
-      items.push({ type: "header", label: img.section[locale] });
-    }
-    items.push({ type: "photo", img });
-  }
-
-  // Collect only photos for lightbox navigation
-  const photos = images;
+  const open = openIndex !== null ? images[openIndex] : null;
 
   return (
     <>
@@ -60,38 +79,94 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                 </div>
               )}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {section.photos.map((img) => (
-                  <button
-                    key={img.src}
-                    type="button"
-                    onClick={() => setOpen(img)}
-                    className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt[locale]}
-                      fill
-                      sizes="(max-width: 640px) 50vw, 33vw"
-                      className="object-cover transition-all duration-300 hover:scale-105"
-                    />
-                  </button>
-                ))}
+                {section.photos.map((img) => {
+                  const index = images.indexOf(img);
+                  return (
+                    <button
+                      key={img.src}
+                      type="button"
+                      onClick={() => setOpenIndex(index)}
+                      className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt[locale]}
+                        fill
+                        sizes="(max-width: 640px) 50vw, 33vw"
+                        className="object-cover transition-all duration-300 hover:scale-105"
+                      />
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ));
         })()}
       </div>
 
-      {open && (
+      {open && openIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-stone-900/80 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setOpen(null)}
+          className="fixed inset-0 z-50 bg-stone-900/90 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setOpenIndex(null)}
           role="dialog"
           aria-label={open.alt[locale]}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const delta = e.changedTouches[0].clientX - touchStartX.current;
+            if (Math.abs(delta) > 50) {
+              if (delta < 0) goNext();
+              else goPrev();
+            }
+            touchStartX.current = null;
+          }}
         >
-          <div className="relative w-full max-w-3xl aspect-[4/3] animate-fade-in" style={{ animationDelay: "100ms" }}>
+          <button
+            type="button"
+            onClick={() => setOpenIndex(null)}
+            aria-label={locale === "ro" ? "Închide" : "Close"}
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white transition-colors duration-200 p-2"
+          >
+            <CloseIcon className="w-7 h-7" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              goPrev();
+            }}
+            aria-label={locale === "ro" ? "Fotografia anterioară" : "Previous photo"}
+            className="absolute left-1 sm:left-4 text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 sm:p-3 bg-black/0 hover:bg-black/20 rounded-full"
+          >
+            <ChevronIcon className="w-7 h-7 sm:w-9 sm:h-9" />
+          </button>
+
+          <div
+            key={open.src}
+            className="relative w-full max-w-3xl aspect-[4/3] animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image src={open.src} alt={open.alt[locale]} fill className="object-contain" />
           </div>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              goNext();
+            }}
+            aria-label={locale === "ro" ? "Fotografia următoare" : "Next photo"}
+            className="absolute right-1 sm:right-4 text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 sm:p-3 bg-black/0 hover:bg-black/20 rounded-full rotate-180"
+          >
+            <ChevronIcon className="w-7 h-7 sm:w-9 sm:h-9" />
+          </button>
+
+          <p className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm tabular-nums">
+            {openIndex + 1} / {images.length}
+          </p>
         </div>
       )}
     </>
