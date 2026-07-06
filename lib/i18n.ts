@@ -20,5 +20,6 @@ export const nav = [
   { path: "/evenimente", label: { ro: "Evenimente", en: "Events" } },
   { path: "/biserici", label: { ro: "Bisericile", en: "Churches" } },
   { path: "/galerie", label: { ro: "Galerie", en: "Gallery" } },
+  { path: "/resurse", label: { ro: "Resurse", en: "Resources" } },
   { path: "/alatura-te", label: { ro: "Alătură-te", en: "Join us" } },
 ] as const;

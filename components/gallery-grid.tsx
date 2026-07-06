@@ -36,6 +36,18 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openIndex]);
 
+  // Warm the browser cache for the neighboring photos so tapping next/prev
+  // shows an already-downloaded image instead of waiting on the network.
+  useEffect(() => {
+    if (openIndex === null || images.length < 2) return;
+    const nextSrc = images[(openIndex + 1) % images.length].src;
+    const prevSrc = images[(openIndex - 1 + images.length) % images.length].src;
+    for (const src of [nextSrc, prevSrc]) {
+      const preload = new window.Image();
+      preload.src = src;
+    }
+  }, [openIndex, images]);
+
   if (images.length === 0) {
     return (
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -77,7 +89,7 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                   <div className="mt-1 h-px w-16 bg-orange-500" />
                 </div>
               )}
-              <div className={`grid gap-3 ${section.photos.length === 1 ? "grid-cols-1" : "grid-cols-2 sm:grid-cols-3"}`}>
+              <div className={`grid gap-3 ${images.length === 1 ? "grid-cols-1" : "grid-cols-2 sm:grid-cols-3"}`}>
                 {section.photos.map((img) => {
                   const index = images.indexOf(img);
                   return (
@@ -91,7 +103,7 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                         src={img.src}
                         alt={img.alt[locale]}
                         fill
-                        sizes={section.photos.length === 1 ? "(max-width: 640px) 90vw, 672px" : "(max-width: 640px) 50vw, 33vw"}
+                        sizes={images.length === 1 ? "(max-width: 640px) 90vw, 672px" : "(max-width: 640px) 50vw, 33vw"}
                         className="object-cover transition-all duration-300 hover:scale-105"
                       />
                     </button>
@@ -135,7 +147,8 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
             className="relative w-full max-w-3xl aspect-[4/3]"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image src={open.src} alt={open.alt[locale]} fill className="object-contain" />
+            {/* Plain img (not next/image) so the preload below hits the same cached URL */}
+            <img src={open.src} alt={open.alt[locale]} className="absolute inset-0 w-full h-full object-contain" />
           </div>
 
           <button

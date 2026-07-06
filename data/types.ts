@@ -41,6 +41,16 @@ export interface Event {
   photos?: GalleryImage[];
 }
 
+export type ResourceCategory = "shorts" | "preaches" | "channels";
+
+export interface Resource {
+  title: string;
+  url: string;
+  source: string; // channel / author name
+  category: ResourceCategory;
+  note?: Localized; // optional one-line context on why it's worth watching
+}
+
 export interface Organiser {
   name: string;
   role: Localized;

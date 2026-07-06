@@ -57,3 +57,12 @@ export function CloseIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+export function PlayIcon({ className }: IconProps) {
+  return (
+    <svg {...base(className)} fill="currentColor" stroke="none">
+      <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" strokeWidth={1.6} />
+      <path d="M10 8.5l6 3.5-6 3.5V8.5z" />
+    </svg>
+  );
+}

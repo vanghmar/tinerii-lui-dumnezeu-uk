@@ -40,12 +40,11 @@ export const gallery: GalleryImage[] = [
   // ── Conferință Italia 2026 ─────────────────────────────────────────────────
 
   {
-    src: "/gallery/italia-2026/photo-2026-05-23-16-24-04.jpg",
+    src: "/gallery/italia-2026/photo-2026-05-23-17-09-24-2.jpg",
     alt: { ro: "Conferință în Italia", en: "Conference in Italy" },
     section: { ro: "Conferință Italia 2026", en: "Italy Conference 2026" },
     consentChecked: true,
   },
-  { src: "/gallery/italia-2026/photo-2026-05-23-17-09-24-2.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
 
   // ── 14 Martie 2026 — Biserica Maranata, Hemel Hempstead ───────────────────
 

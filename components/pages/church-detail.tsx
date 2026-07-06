@@ -15,6 +15,9 @@ const copy = {
   serviceTimes: { ro: "Program", en: "Services" },
   mapsLink: { ro: "Vezi pe hartă ↗", en: "View on map ↗" },
   website: { ro: "Website ↗", en: "Website ↗" },
+  instagram: { ro: "Instagram ↗", en: "Instagram ↗" },
+  youtube: { ro: "YouTube ↗", en: "YouTube ↗" },
+  socials: { ro: "Rețele sociale", en: "Socials" },
   hostedTitle: { ro: "Întâlniri găzduite", en: "Gatherings hosted" },
   photos: { ro: "Fotografii", en: "Photos" },
   noPhotos: {
@@ -94,6 +97,34 @@ export function ChurchDetailPage({ id, locale }: { id: string; locale: Locale })
                 </a>
               )}
             </div>
+
+            {(church.socials?.instagram || church.socials?.youtube) && (
+              <div className="mt-6">
+                <Eyebrow muted>{t(copy.socials, locale)}</Eyebrow>
+                <div className="flex flex-wrap gap-4 mt-2 text-sm">
+                  {church.socials.instagram && (
+                    <a
+                      href={church.socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-orange-700 hover:text-orange-800 transition-colors"
+                    >
+                      {t(copy.instagram, locale)}
+                    </a>
+                  )}
+                  {church.socials.youtube && (
+                    <a
+                      href={church.socials.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-orange-700 hover:text-orange-800 transition-colors"
+                    >
+                      {t(copy.youtube, locale)}
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
 
             {hosted.length > 0 && (
               <div className="mt-8">

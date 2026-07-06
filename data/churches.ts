@@ -23,6 +23,10 @@ export const churches: Church[] = [
     pastor: "Pastor (de confirmat)",
     mapsUrl: "https://maps.google.com/?q=Connected+Life+Church+George+Road+Birmingham+B23+7RY",
     website: "https://connectedlifechurch.co.uk",
+    socials: {
+      instagram: "https://www.instagram.com/clc_.youth/",
+      youtube: "https://www.youtube.com/@bisericaemmausbirmingham8257",
+    },
     description: {
       ro: "O biserică vie din Birmingham, care găzduiește cu drag întâlnirile tinerilor.",
       en: "A vibrant church in Birmingham, warmly hosting the youth gatherings.",
@@ -50,6 +54,7 @@ export const churches: Church[] = [
     pastor: "Pastor (de confirmat)",
     mapsUrl: "https://maps.google.com/?q=Christ+Church+Leyton+73+Francis+Road+London+E10+6PL",
     website: "https://christchurchleyton.org.uk",
+    socials: { instagram: "https://www.instagram.com/tinerii.bhl/" },
     description: {
       ro: "O comunitate românească din Leyton, Londra, cu inimă deschisă pentru tineri.",
       en: "A Romanian community in Leyton, London, with an open heart for young people.",
