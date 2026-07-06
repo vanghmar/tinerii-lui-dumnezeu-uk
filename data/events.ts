@@ -11,7 +11,7 @@ export const events: Event[] = [
     hostChurchId: "connected-life-birmingham",
     date: "2026-07-18T11:00",
     venueAddress: "Biserica Connected Life, George Road, Birmingham B23 7RY",
-    mapsUrl: "https://maps.google.com/?q=George+Road+Birmingham+B23+7RY",
+    mapsUrl: "https://maps.google.com/?q=Connected+Life+Church+George+Road+Birmingham+B23+7RY",
     preacher: "Va fi anunțat",
     theme: {
       ro: "Să răspândim Evanghelia — „Căci mie nu mi-e rușine de Evanghelia lui Hristos; fiindcă ea este puterea lui Dumnezeu pentru mântuirea fiecăruia care crede.” (Romani 1:16)",
