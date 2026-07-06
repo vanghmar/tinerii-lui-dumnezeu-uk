@@ -33,9 +33,9 @@ export const churches: Church[] = [
     id: "maranata-hemel-hempstead",
     name: "Biserica Maranata",
     city: "Hemel Hempstead",
-    address: "Adresa va fi confirmată",
+    address: "Cemetery Hill, Hemel Hempstead HP1 1JF",
     pastor: "Pastor (de confirmat)",
-    mapsUrl: "https://maps.google.com/?q=Hemel+Hempstead",
+    mapsUrl: "https://maps.google.com/?q=Biserica+Baptista+Maranata+Cemetery+Hill+Hemel+Hempstead+HP1+1JF",
     description: {
       ro: "Comunitate românească baptistă din Hemel Hempstead, unită în așteptarea revenirii Domnului.",
       en: "A Romanian Baptist community in Hemel Hempstead, united in awaiting the Lord's return.",
