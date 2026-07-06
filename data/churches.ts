@@ -26,6 +26,7 @@ export const churches: Church[] = [
       ro: "O biserică vie din Birmingham, care găzduiește cu drag întâlnirile tinerilor.",
       en: "A vibrant church in Birmingham, warmly hosting the youth gatherings.",
     },
+    image: "/churches/connected-life-birmingham.jpg",
   },
   {
     id: "maranata-hemel-hempstead",
@@ -38,6 +39,7 @@ export const churches: Church[] = [
       ro: "Comunitate românească baptistă din Hemel Hempstead, unită în așteptarea revenirii Domnului.",
       en: "A Romanian Baptist community in Hemel Hempstead, united in awaiting the Lord's return.",
     },
+    image: "/churches/maranata-hemel-hempstead.jpg",
   },
   {
     id: "hristos-leyton-london",
