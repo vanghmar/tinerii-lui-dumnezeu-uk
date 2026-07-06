@@ -32,8 +32,8 @@ export const events: Event[] = [
     title: { ro: "Întâlnirea tinerilor — Ipswich", en: "Youth gathering — Ipswich" },
     hostChurchId: "ekklesia-ipswich",
     date: "2026-09-26T17:00",
-    venueAddress: "Biserica Ekklesia, Ipswich (adresa va fi confirmată)",
-    mapsUrl: "https://maps.google.com/?q=Ipswich",
+    venueAddress: "Biserica Creștină Ekklesia, St. Helen's St, Ipswich IP4 2LH",
+    mapsUrl: "https://maps.google.com/?q=Biserica+Crestina+Ekklesia+St+Helens+St+Ipswich+IP4+2LH",
     preacher: "Va fi anunțat",
     theme: { ro: "Tema va fi anunțată", en: "Theme to be announced" },
     foodAndActivities: {

@@ -70,15 +70,16 @@ export const churches: Church[] = [
   },
   {
     id: "ekklesia-ipswich",
-    name: "Biserica Ekklesia",
+    name: "Biserica Creștină Ekklesia",
     city: "Ipswich",
-    address: "Adresa va fi confirmată",
+    address: "St. Helen's St, Ipswich IP4 2LH",
     pastor: "Pastor (de confirmat)",
-    mapsUrl: "https://maps.google.com/?q=Ipswich",
+    mapsUrl: "https://maps.google.com/?q=Biserica+Crestina+Ekklesia+St+Helens+St+Ipswich+IP4+2LH",
     description: {
       ro: "Comunitate românească baptistă din Ipswich, parte activă a mișcării de tineret.",
       en: "A Romanian Baptist community in Ipswich, an active part of the youth movement.",
     },
+    image: "/churches/ekklesia-ipswich.jpg",
   },
 ];
 
