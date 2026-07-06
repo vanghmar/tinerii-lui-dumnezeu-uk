@@ -50,6 +50,7 @@ export const churches: Church[] = [
       ro: "O comunitate românească din Leyton, Londra, cu inimă deschisă pentru tineri.",
       en: "A Romanian community in Leyton, London, with an open heart for young people.",
     },
+    image: "/churches/hristos-leyton-london.jpg",
   },
   {
     id: "emaus-northampton",
