@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getChurch } from "@/data/churches";
@@ -14,6 +15,7 @@ const copy = {
   preacher: { ro: "Predicator", en: "Preacher" },
   theme: { ro: "Tema", en: "Theme" },
   food: { ro: "Mâncare și activități", en: "Food and activities" },
+  invite: { ro: "Vă așteptăm!", en: "We can't wait to see you!" },
   summary: { ro: "Cum a fost", en: "How it was" },
   photos: { ro: "Fotografii", en: "Photos" },
   inDays: { ro: "zile rămase", en: "days to go" },
@@ -30,21 +32,36 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
   return (
     <>
       <SectionBand tint>
-        <Link
-          href={localePath(locale, "/evenimente")}
-          className="text-sm text-orange-700 hover:text-orange-800"
-        >
-          {t(copy.back, locale)}
-        </Link>
-        <h1 className="font-serif text-4xl text-stone-800 mt-4">{t(event.title, locale)}</h1>
-        <p className="text-stone-500 mt-2 capitalize">
-          {formatEventDate(event.date, locale)} · {formatEventTime(event.date)}
-        </p>
-        {upcoming && days > 0 && (
-          <p className="text-orange-700 mt-1">
-            {days} {t(copy.inDays, locale)}
-          </p>
-        )}
+        <div className="flex flex-col sm:flex-row sm:items-start gap-8">
+          <div className="flex-1">
+            <Link
+              href={localePath(locale, "/evenimente")}
+              className="text-sm text-orange-700 hover:text-orange-800"
+            >
+              {t(copy.back, locale)}
+            </Link>
+            <h1 className="font-serif text-4xl text-stone-800 mt-4">{t(event.title, locale)}</h1>
+            <p className="text-stone-500 mt-2 capitalize">
+              {formatEventDate(event.date, locale)} · {formatEventTime(event.date)}
+            </p>
+            {upcoming && days > 0 && (
+              <p className="text-orange-700 mt-1">
+                {days} {t(copy.inDays, locale)}
+              </p>
+            )}
+          </div>
+          {event.poster && (
+            <div className="relative w-56 h-72 shrink-0 rounded-2xl overflow-hidden shadow-md -rotate-2 mx-auto sm:mx-0">
+              <Image
+                src={event.poster}
+                alt={t(event.title, locale)}
+                fill
+                className="object-cover"
+                sizes="224px"
+              />
+            </div>
+          )}
+        </div>
       </SectionBand>
       <SectionBand>
         <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-6 max-w-2xl">
@@ -90,6 +107,14 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
             </div>
           )}
         </dl>
+        {event.invite && upcoming && (
+          <div className="max-w-2xl mt-10 rounded-2xl bg-orange-50 border border-orange-200/70 p-6">
+            <Eyebrow>{t(copy.invite, locale)}</Eyebrow>
+            <p className="text-stone-700 leading-relaxed mt-2 whitespace-pre-line">
+              {t(event.invite, locale)}
+            </p>
+          </div>
+        )}
         {event.summary && (
           <div className="max-w-2xl mt-10">
             <Eyebrow muted>{t(copy.summary, locale)}</Eyebrow>

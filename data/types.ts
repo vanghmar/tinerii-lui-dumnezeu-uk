@@ -35,6 +35,8 @@ export interface Event {
   preacher?: string;
   theme?: Localized;
   foodAndActivities?: Localized;
+  invite?: Localized; // pre-event announcement message
+  poster?: string; // flyer image shown before the event
   summary?: Localized;
   photos?: GalleryImage[];
 }
