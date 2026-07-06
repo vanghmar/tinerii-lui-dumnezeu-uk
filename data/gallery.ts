@@ -35,6 +35,7 @@ export const gallery: GalleryImage[] = [
   { src: "/gallery/2026-05-london/photo-2026-05-10-12-47-08.jpg", alt: { ro: "Jocuri în parc", en: "Games in the park" }, eventSlug: "2026-05-london", consentChecked: true },
   { src: "/gallery/2026-05-london/photo-2026-05-10-12-47-10-2.jpg", alt: { ro: "Momente în parc", en: "Moments in the park" }, eventSlug: "2026-05-london", consentChecked: true },
   { src: "/gallery/2026-05-london/photo-2026-05-10-12-47-12-2.jpg", alt: { ro: "Volei în parc", en: "Volleyball in the park" }, eventSlug: "2026-05-london", consentChecked: true },
+  { src: "/gallery/2026-05-london/photo-2026-05-09-snapshot.jpg", alt: { ro: "Întâlnirea tinerilor — Londra", en: "Youth gathering — London" }, eventSlug: "2026-05-london", consentChecked: true },
 
   // ── Conferință Italia 2026 ─────────────────────────────────────────────────
 
@@ -78,11 +79,12 @@ export const gallery: GalleryImage[] = [
   {
     src: "/gallery/2025-11-high-wycombe/photo-2025-09-25-13-50-40.jpg",
     alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" },
+    eventSlug: "2025-11-high-wycombe",
     section: { ro: "8 Noiembrie 2025 — High Wycombe", en: "8 November 2025 — High Wycombe" },
     consentChecked: true,
   },
-  { src: "/gallery/2025-11-high-wycombe/photo-2025-09-25-13-50-41.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, consentChecked: true },
-  { src: "/gallery/2025-11-high-wycombe/photo-2025-09-25-13-52-44.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, consentChecked: true },
+  { src: "/gallery/2025-11-high-wycombe/photo-2025-09-25-13-50-41.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, eventSlug: "2025-11-high-wycombe", consentChecked: true },
+  { src: "/gallery/2025-11-high-wycombe/photo-2025-09-25-13-52-44.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2025-11-high-wycombe", consentChecked: true },
 
   // ── Alte momente ──────────────────────────────────────────────────────────
 

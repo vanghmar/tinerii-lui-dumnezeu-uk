@@ -33,7 +33,7 @@ const copy = {
 export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <>
-      <SectionBand tint size="tall">
+      <SectionBand tint size="compact">
         <div className="flex flex-col sm:flex-row sm:items-center gap-8">
           <div className="flex-1">
             <Eyebrow>{t(copy.eyebrow, locale)}</Eyebrow>

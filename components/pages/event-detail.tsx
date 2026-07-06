@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getChurch } from "@/data/churches";
-import { getEvent, formatEventDate, formatEventTime, daysUntil } from "@/lib/events";
+import { getEvent, getEventPhotos, formatEventDate, formatEventTime, daysUntil } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Eyebrow, SectionBand } from "@/components/ui";
 import { GalleryGrid } from "@/components/gallery-grid";
@@ -28,6 +28,7 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
   const church = getChurch(event.hostChurchId);
   const upcoming = new Date(event.date) >= new Date();
   const days = daysUntil(event.date);
+  const photos = getEventPhotos(event.slug);
 
   return (
     <>
@@ -121,11 +122,11 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
             <p className="text-stone-600 leading-relaxed mt-2">{t(event.summary, locale)}</p>
           </div>
         )}
-        {event.photos && event.photos.length > 0 && (
-          <div className="mt-10">
+        {photos.length > 0 && (
+          <div className="max-w-2xl mt-10">
             <Eyebrow muted>{t(copy.photos, locale)}</Eyebrow>
             <div className="mt-3">
-              <GalleryGrid images={event.photos} locale={locale} />
+              <GalleryGrid images={photos} locale={locale} />
             </div>
           </div>
         )}

@@ -1,5 +1,6 @@
 import { events } from "@/data/events";
-import type { Event } from "@/data/types";
+import { gallery } from "@/data/gallery";
+import type { Event, GalleryImage } from "@/data/types";
 
 function now(): Date {
   return new Date();
@@ -23,6 +24,10 @@ export function getNextEvent(): Event | undefined {
 
 export function getEvent(slug: string): Event | undefined {
   return events.find((e) => e.slug === slug);
+}
+
+export function getEventPhotos(slug: string): GalleryImage[] {
+  return gallery.filter((img) => img.eventSlug === slug);
 }
 
 export function formatEventDate(date: string, locale: "ro" | "en"): string {

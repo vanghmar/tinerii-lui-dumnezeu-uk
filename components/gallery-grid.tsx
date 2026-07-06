@@ -77,7 +77,7 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                   <div className="mt-1 h-px w-16 bg-orange-500" />
                 </div>
               )}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className={`grid gap-3 ${section.photos.length === 1 ? "grid-cols-1" : "grid-cols-2 sm:grid-cols-3"}`}>
                 {section.photos.map((img) => {
                   const index = images.indexOf(img);
                   return (
@@ -91,7 +91,7 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                         src={img.src}
                         alt={img.alt[locale]}
                         fill
-                        sizes="(max-width: 640px) 50vw, 33vw"
+                        sizes={section.photos.length === 1 ? "(max-width: 640px) 90vw, 672px" : "(max-width: 640px) 50vw, 33vw"}
                         className="object-cover transition-all duration-300 hover:scale-105"
                       />
                     </button>
