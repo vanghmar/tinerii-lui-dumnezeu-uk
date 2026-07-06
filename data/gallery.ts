@@ -45,6 +45,17 @@ export const gallery: GalleryImage[] = [
     section: { ro: "Conferință Italia 2026", en: "Italy Conference 2026" },
     consentChecked: true,
   },
+  { src: "/gallery/italia-2026/photo-italia-2026-02.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-03.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-04.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-05.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-06.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-07.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-08.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-09.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-10.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-11.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
+  { src: "/gallery/italia-2026/photo-italia-2026-12.jpg", alt: { ro: "Conferință în Italia", en: "Conference in Italy" }, consentChecked: true },
 
   // ── 14 Martie 2026 — Biserica Maranata, Hemel Hempstead ───────────────────
 
