@@ -10,7 +10,7 @@ export const events: Event[] = [
     title: { ro: "Întâlnirea tinerilor — Birmingham", en: "Youth gathering — Birmingham" },
     hostChurchId: "connected-life-birmingham",
     date: "2026-07-18T11:00",
-    venueAddress: "Biserica Connected Life, George Road, Birmingham B23 7RY",
+    venueAddress: "Connected Life Church, George Road, Birmingham B23 7RY",
     mapsUrl: "https://maps.google.com/?q=Connected+Life+Church+George+Road+Birmingham+B23+7RY",
     preacher: "Va fi anunțat",
     theme: {
@@ -73,7 +73,7 @@ export const events: Event[] = [
     title: { ro: "Întâlnirea tinerilor — Birmingham", en: "Youth gathering — Birmingham" },
     hostChurchId: "connected-life-birmingham",
     date: "2026-01-10T17:00",
-    venueAddress: "Biserica Connected Life, Birmingham",
+    venueAddress: "Connected Life Church, Birmingham",
     mapsUrl: "https://maps.google.com/?q=Connected+Life+Church+Birmingham",
     summary: {
       ro: "Tinerii s-au adunat la Birmingham pentru a începe noul an împreună în Hristos.",

@@ -61,7 +61,7 @@ export const gallery: GalleryImage[] = [
   { src: "/gallery/2026-03-hemel-hempstead/photo-2026-03-07-11-51-41-2.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-03-hemel-hempstead", consentChecked: true },
   { src: "/gallery/2026-03-hemel-hempstead/photo-2026-03-15-12-28-03.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, eventSlug: "2026-03-hemel-hempstead", consentChecked: true },
 
-  // ── 10 Ianuarie 2026 — Biserica Connected Life, Birmingham ────────────────
+  // ── 10 Ianuarie 2026 — Connected Life Church, Birmingham ────────────────
 
   {
     src: "/gallery/2026-01-birmingham/photo-2026-01-11-20-51-54.jpg",

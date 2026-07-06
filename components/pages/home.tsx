@@ -84,7 +84,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       <SectionBand>
-        <div className="grid sm:grid-cols-2 gap-6 items-start">
+        <div className="grid sm:grid-cols-2 gap-6 items-stretch">
           {next ? (
             <EventCard event={next} locale={locale} highlight eyebrow={t(copy.nextEvent, locale)} />
           ) : (
@@ -93,7 +93,37 @@ export function HomePage({ locale }: { locale: Locale }) {
               <p className="text-stone-600 mt-2">{t(copy.noEvent, locale)}</p>
             </Card>
           )}
-          <div>
+          {next?.poster ? (
+            <Link
+              href={localePath(locale, `/evenimente/${next.slug}`)}
+              className="relative block w-full h-64 sm:h-full rounded-2xl overflow-hidden shadow-md transition-transform duration-200 hover:-translate-y-1"
+            >
+              <Image
+                src={next.poster}
+                alt={t(next.title, locale)}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 90vw, 400px"
+              />
+            </Link>
+          ) : (
+            <div>
+              <Eyebrow muted>{t(copy.whoTitle, locale)}</Eyebrow>
+              <p className="text-stone-600 mt-3 leading-relaxed">{t(copy.whoText, locale)}</p>
+              <Link
+                href={localePath(locale, "/despre")}
+                className="inline-block text-sm text-orange-700 hover:text-orange-800 mt-3 link-underline"
+              >
+                {t(copy.readMore, locale)}
+              </Link>
+            </div>
+          )}
+        </div>
+      </SectionBand>
+
+      {next?.poster && (
+        <SectionBand>
+          <div className="max-w-2xl">
             <Eyebrow muted>{t(copy.whoTitle, locale)}</Eyebrow>
             <p className="text-stone-600 mt-3 leading-relaxed">{t(copy.whoText, locale)}</p>
             <Link
@@ -103,8 +133,8 @@ export function HomePage({ locale }: { locale: Locale }) {
               {t(copy.readMore, locale)}
             </Link>
           </div>
-        </div>
-      </SectionBand>
+        </SectionBand>
+      )}
 
       <SectionBand tint>
         <div className="text-center">

@@ -50,6 +50,14 @@ export function EventCard({
       {!upcoming && event.summary && (
         <p className="text-sm text-stone-600 mt-2 line-clamp-2">{t(event.summary, locale)}</p>
       )}
+      {highlight && event.theme && (
+        <div className="mt-3 pt-3 border-t border-stone-100">
+          <p className="text-xs uppercase tracking-wide text-stone-400">
+            {locale === "ro" ? "Tema" : "Theme"}
+          </p>
+          <p className="text-sm text-stone-600 mt-1 line-clamp-2">{t(event.theme, locale)}</p>
+        </div>
+      )}
       <Link
         href={localePath(locale, `/evenimente/${event.slug}`)}
         className="group inline-flex items-center gap-1.5 text-sm text-orange-700 hover:text-orange-800 mt-3"

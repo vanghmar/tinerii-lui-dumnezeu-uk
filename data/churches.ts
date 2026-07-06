@@ -17,7 +17,7 @@ export const churches: Church[] = [
   },
   {
     id: "connected-life-birmingham",
-    name: "Biserica Connected Life",
+    name: "Connected Life Church",
     city: "Birmingham",
     address: "George Road, Birmingham B23 7RY",
     pastor: "Pastor (de confirmat)",
