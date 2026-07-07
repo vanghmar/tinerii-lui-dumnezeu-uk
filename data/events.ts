@@ -51,22 +51,32 @@ export const events: Event[] = [
     date: "2026-05-09T17:00",
     venueAddress: "Biserica lui Hristos din Leyton, Londra",
     mapsUrl: "https://maps.google.com/?q=Leyton,London",
+    theme: {
+      ro: "Trezește-te azi, nu mâine — „Iată că acum este vremea potrivită; iată că acum este ziua mântuirii.” (2 Corinteni 6:2)",
+      en: "Wake up today, not tomorrow — “Now is the time of God's favor, now is the day of salvation.” (2 Corinthians 6:2)",
+    },
     summary: {
       ro: "Tinerii s-au adunat la Londra pentru o zi plină de părtășie, jocuri și închinare.",
       en: "The young people gathered in London for a day full of fellowship, games and worship.",
     },
+    poster: "/events/2026-05-london-poster.jpg",
   },
   {
     slug: "2026-03-hemel-hempstead",
     title: { ro: "Întâlnirea tinerilor — Hemel Hempstead", en: "Youth gathering — Hemel Hempstead" },
     hostChurchId: "maranata-hemel-hempstead",
-    date: "2026-03-14T17:00",
-    venueAddress: "Biserica Maranata, Hemel Hempstead",
-    mapsUrl: "https://maps.google.com/?q=Hemel+Hempstead",
+    date: "2026-03-14T11:00",
+    venueAddress: "South Hill Centre, Hemel Hempstead HP1 1JF",
+    mapsUrl: "https://maps.google.com/?q=South+Hill+Centre+Hemel+Hempstead+HP1+1JF",
+    theme: {
+      ro: "Conectați la Hristos — online, offline, lifeline — „Eu sunt Vița, voi sunteți mlădițele. Cine rămâne în Mine și în cine rămân Eu aduce mult rod; căci despărțiți de Mine, nu puteți face nimic.” (Ioan 15:5)",
+      en: "Connected to Christ — online, offline, lifeline — “I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing.” (John 15:5)",
+    },
     summary: {
       ro: "O întâlnire binecuvântată la Hemel Hempstead, cu cântări de laudă și un mesaj din Cuvântul lui Dumnezeu.",
       en: "A blessed gathering in Hemel Hempstead, with songs of praise and a message from God's Word.",
     },
+    poster: "/events/2026-03-hemel-hempstead-poster.jpg",
   },
   {
     slug: "2026-01-birmingham",
