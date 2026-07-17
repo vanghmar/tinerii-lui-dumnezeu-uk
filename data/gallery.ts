@@ -2,29 +2,6 @@ import type { GalleryImage } from "./types";
 
 export const gallery: GalleryImage[] = [
 
-  // ── 11 Mai 2026 — Biserica Emaus, Northampton ──────────────────────────────
-
-  {
-    src: "/gallery/2026-05-northampton/photo-2026-03-07-11-44-39-3.jpg",
-    alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" },
-    eventSlug: "2026-05-northampton",
-    section: { ro: "11 Mai 2026 — Northampton", en: "11 May 2026 — Northampton" },
-    consentChecked: true,
-  },
-  { src: "/gallery/2026-05-northampton/photo-2026-03-07-11-44-41.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2026-03-07-11-44-42.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2026-03-07-11-44-43.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2026-03-07-11-51-41-2.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2026-03-15-12-28-03.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2024-11-09-15-21-41.jpg", alt: { ro: "Tinerii la întâlnire", en: "Youth gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2024-11-09-15-50-50.jpg", alt: { ro: "Tinerii la întâlnire", en: "Youth gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/photo-2025-03-15-23-54-33.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/WhatsApp Image 2026-03-07 at 09.44.36.jpeg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/WhatsApp Image 2026-03-07 at 09.44.37.jpeg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/WhatsApp Image 2026-03-07 at 09.44.38.jpeg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/WhatsApp Image 2026-03-07 at 09.44.42.jpeg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-05-northampton", consentChecked: true },
-  { src: "/gallery/2026-05-northampton/WhatsApp Image 2026-03-07 at 09.51.41.jpeg", alt: { ro: "Părtășie", en: "Fellowship" }, eventSlug: "2026-05-northampton", consentChecked: true },
-
   // ── 09 Mai 2026 — Biserica lui Hristos din Leyton, Londra ─────────────────
 
   {
@@ -118,4 +95,27 @@ export const gallery: GalleryImage[] = [
     section: { ro: "8 Noiembrie 2025 — High Wycombe", en: "8 November 2025 — High Wycombe" },
     consentChecked: true,
   },
+
+  // ── 11 Mai 2025 — Biserica Emaus, Northampton ──────────────────────────────
+
+  {
+    src: "/gallery/2025-05-northampton/photo-2026-03-07-11-44-39-3.jpg",
+    alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" },
+    eventSlug: "2025-05-northampton",
+    section: { ro: "11 Mai 2025 — Northampton", en: "11 May 2025 — Northampton" },
+    consentChecked: true,
+  },
+  { src: "/gallery/2025-05-northampton/photo-2026-03-07-11-44-41.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2026-03-07-11-44-42.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2026-03-07-11-44-43.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2026-03-07-11-51-41-2.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2026-03-15-12-28-03.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2024-11-09-15-21-41.jpg", alt: { ro: "Tinerii la întâlnire", en: "Youth gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2024-11-09-15-50-50.jpg", alt: { ro: "Tinerii la întâlnire", en: "Youth gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/photo-2025-03-15-23-54-33.jpg", alt: { ro: "Întâlnirea tinerilor", en: "Youth gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/WhatsApp Image 2026-03-07 at 09.44.36.jpeg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/WhatsApp Image 2026-03-07 at 09.44.37.jpeg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/WhatsApp Image 2026-03-07 at 09.44.38.jpeg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/WhatsApp Image 2026-03-07 at 09.44.42.jpeg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2025-05-northampton", consentChecked: true },
+  { src: "/gallery/2025-05-northampton/WhatsApp Image 2026-03-07 at 09.51.41.jpeg", alt: { ro: "Părtășie", en: "Fellowship" }, eventSlug: "2025-05-northampton", consentChecked: true },
 ];
