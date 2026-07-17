@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getChurch } from "@/data/churches";
-import { getEvent, getEventPhotos, formatEventDate, formatEventTime, daysUntil } from "@/lib/events";
+import { getEvent, getEventPhotos, formatEventDate, formatEventTimeRange, daysUntil } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Eyebrow, SectionBand } from "@/components/ui";
 import { GalleryGrid } from "@/components/gallery-grid";
@@ -43,7 +43,7 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
             </Link>
             <h1 className="font-serif text-4xl text-stone-800 mt-4">{t(event.title, locale)}</h1>
             <p className="text-stone-500 mt-2 capitalize">
-              {formatEventDate(event.date, locale)} · {formatEventTime(event.date)}
+              {formatEventDate(event.date, locale)} · {formatEventTimeRange(event.date)}
             </p>
             {upcoming && days > 0 && (
               <p className="text-orange-700 mt-1">

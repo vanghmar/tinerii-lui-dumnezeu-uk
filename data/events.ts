@@ -31,7 +31,7 @@ export const events: Event[] = [
     slug: "2026-09-ipswich",
     title: { ro: "Întâlnirea tinerilor — Ipswich", en: "Youth gathering — Ipswich" },
     hostChurchId: "ekklesia-ipswich",
-    date: "2026-09-26T17:00",
+    date: "2026-09-26T11:00",
     venueAddress: "Biserica Creștină Ekklesia, St. Helen's St, Ipswich IP4 2LH",
     mapsUrl: "https://maps.google.com/?q=Biserica+Crestina+Ekklesia+St+Helens+St+Ipswich+IP4+2LH",
     preacher: "Va fi anunțat",
@@ -48,7 +48,7 @@ export const events: Event[] = [
     slug: "2026-05-london",
     title: { ro: "Întâlnirea tinerilor — Londra", en: "Youth gathering — London" },
     hostChurchId: "hristos-leyton-london",
-    date: "2026-05-09T17:00",
+    date: "2026-05-09T11:00",
     venueAddress: "Biserica lui Hristos din Leyton, Londra",
     mapsUrl: "https://maps.google.com/?q=Leyton,London",
     theme: {
@@ -82,7 +82,7 @@ export const events: Event[] = [
     slug: "2026-01-birmingham",
     title: { ro: "Întâlnirea tinerilor — Birmingham", en: "Youth gathering — Birmingham" },
     hostChurchId: "connected-life-birmingham",
-    date: "2026-01-10T17:00",
+    date: "2026-01-10T11:00",
     venueAddress: "Connected Life Church, Birmingham",
     mapsUrl: "https://maps.google.com/?q=Connected+Life+Church+Birmingham",
     summary: {
@@ -94,7 +94,7 @@ export const events: Event[] = [
     slug: "2025-11-high-wycombe",
     title: { ro: "Întâlnirea tinerilor — High Wycombe", en: "Youth gathering — High Wycombe" },
     hostChurchId: "viata-noua-high-wycombe",
-    date: "2025-11-08T17:00",
+    date: "2025-11-08T11:00",
     venueAddress: "Biserica Viața Nouă, High Wycombe",
     mapsUrl: "https://maps.google.com/?q=High+Wycombe",
     summary: {

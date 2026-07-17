@@ -46,6 +46,15 @@ export function formatEventTime(date: string): string {
   });
 }
 
+// The gatherings always run the same 8-hour programme, doors to close.
+const PROGRAMME_LENGTH_HOURS = 8;
+
+export function formatEventTimeRange(date: string): string {
+  const start = new Date(date);
+  const end = new Date(start.getTime() + PROGRAMME_LENGTH_HOURS * 3600_000);
+  return `${formatEventTime(start.toISOString())} – ${formatEventTime(end.toISOString())}`;
+}
+
 export function daysUntil(date: string): number {
   const ms = new Date(date).getTime() - now().getTime();
   return Math.ceil(ms / 86400000);

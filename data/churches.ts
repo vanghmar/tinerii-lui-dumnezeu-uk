@@ -8,7 +8,7 @@ export const churches: Church[] = [
     name: "Biserica Viața Nouă",
     city: "High Wycombe",
     address: "Adresa va fi confirmată",
-    pastor: "Pastor (de confirmat)",
+    pastor: "Gratian Vandici",
     mapsUrl: "https://maps.google.com/?q=High+Wycombe",
     description: {
       ro: "O comunitate română baptistă din High Wycombe, parte a familiei Tinerii lui Dumnezeu UK.",
@@ -38,7 +38,7 @@ export const churches: Church[] = [
     name: "Biserica Maranata",
     city: "Hemel Hempstead",
     address: "Cemetery Hill, Hemel Hempstead HP1 1JF",
-    pastor: "Pastor (de confirmat)",
+    pastor: "Cristi Tiplea",
     mapsUrl: "https://maps.google.com/?q=Biserica+Baptista+Maranata+Cemetery+Hill+Hemel+Hempstead+HP1+1JF",
     description: {
       ro: "Comunitate românească baptistă din Hemel Hempstead, unită în așteptarea revenirii Domnului.",
@@ -51,7 +51,7 @@ export const churches: Church[] = [
     name: "Biserica lui Hristos din Leyton",
     city: "Londra",
     address: "73 Francis Road, London E10 6PL",
-    pastor: "Pastor (de confirmat)",
+    pastor: "Dumitru Budac",
     mapsUrl: "https://maps.google.com/?q=Christ+Church+Leyton+73+Francis+Road+London+E10+6PL",
     website: "https://christchurchleyton.org.uk",
     socials: { instagram: "https://www.instagram.com/tinerii.bhl/" },
@@ -66,7 +66,7 @@ export const churches: Church[] = [
     name: "Biserica Emaus",
     city: "Northampton",
     address: "Adresa va fi confirmată",
-    pastor: "Pastor (de confirmat)",
+    pastor: "Florin Baci",
     mapsUrl: "https://maps.google.com/?q=Northampton",
     description: {
       ro: "Biserică română baptistă din Northampton, al cărei nume evocă întâlnirea cu Hristos pe drum.",

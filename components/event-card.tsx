@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Event } from "@/data/types";
 import { getChurch } from "@/data/churches";
-import { formatEventDate, formatEventTime, daysUntil } from "@/lib/events";
+import { formatEventDate, formatEventTimeRange, daysUntil } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Card, Eyebrow } from "./ui";
 import { CalendarIcon, ArrowRightIcon } from "./icons";
@@ -29,7 +29,7 @@ export function EventCard({
       </div>
       <h3 className="font-serif text-xl text-stone-800 mt-1.5">{t(event.title, locale)}</h3>
       <p className="text-sm text-stone-500 mt-1 capitalize">
-        {formatEventDate(event.date, locale)} · {formatEventTime(event.date)}
+        {formatEventDate(event.date, locale)} · {formatEventTimeRange(event.date)}
       </p>
       {church && (
         <p className="text-sm text-stone-500">
