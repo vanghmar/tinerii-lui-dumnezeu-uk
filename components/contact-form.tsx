@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n";
 
 // WhatsApp click-to-chat — no inbox to manage, messages land straight in WhatsApp.
 const WHATSAPP_NUMBER = "447549119705";
+const CONTACT_EMAIL = "contact.tinericrestini@gmail.com";
 
 const labels = {
   name: { ro: "Numele tău", en: "Your name" },
@@ -14,7 +15,7 @@ const labels = {
     en: "Tell us who you are and how we can help...",
   },
   send: { ro: "Trimite mesajul pe WhatsApp", en: "Send message on WhatsApp" },
-  emailSoon: { ro: "Email: în curând", en: "Email: coming soon" },
+  emailLabel: { ro: "sau scrie-ne pe email:", en: "or email us:" },
 };
 
 export function ContactForm({ locale }: { locale: Locale }) {
@@ -61,7 +62,12 @@ export function ContactForm({ locale }: { locale: Locale }) {
         >
           {labels.send[locale]}
         </button>
-        <span className="text-sm text-stone-400 italic">{labels.emailSoon[locale]}</span>
+        <span className="text-sm text-stone-500">
+          {labels.emailLabel[locale]}{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-orange-700 hover:text-orange-800 link-underline">
+            {CONTACT_EMAIL}
+          </a>
+        </span>
       </div>
     </form>
   );
