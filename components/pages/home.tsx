@@ -163,8 +163,10 @@ export function HomePage({ locale }: { locale: Locale }) {
       )}
 
       <SectionBand tint>
-        <Heading>{t(copy.churchesTitle, locale)}</Heading>
-        <div className="flex flex-wrap gap-3 mt-6">
+        <div className="text-center">
+          <Heading>{t(copy.churchesTitle, locale)}</Heading>
+        </div>
+        <div className="flex flex-wrap gap-3 mt-6 justify-center">
           {churches.map((c) => (
             <Link
               key={c.id}

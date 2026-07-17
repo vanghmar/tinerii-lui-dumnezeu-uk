@@ -1,13 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { GalleryImage } from "@/data/types";
 import type { Locale } from "@/lib/i18n";
 import { ChevronIcon, CloseIcon } from "@/components/icons";
 
+// Minimum horizontal drag distance (px) before a touch gesture counts as a swipe.
+const SWIPE_THRESHOLD = 40;
+
 export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale: Locale }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const close = () => {
+    setOpenIndex(null);
+    lastFocusedRef.current?.focus();
+  };
 
   const goNext = () => {
     if (openIndex === null) return;
@@ -19,12 +30,25 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
     setOpenIndex((openIndex - 1 + images.length) % images.length);
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (delta <= -SWIPE_THRESHOLD) goNext();
+    else if (delta >= SWIPE_THRESHOLD) goPrev();
+  };
+
   useEffect(() => {
     if (openIndex === null) return;
 
     document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenIndex(null);
+      if (e.key === "Escape") close();
       if (e.key === "ArrowRight") goNext();
       if (e.key === "ArrowLeft") goPrev();
     };
@@ -96,7 +120,11 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
                     <button
                       key={img.src}
                       type="button"
-                      onClick={() => setOpenIndex(index)}
+                      onClick={(e) => {
+                        lastFocusedRef.current = e.currentTarget;
+                        setOpenIndex(index);
+                      }}
+                      aria-label={img.alt[locale]}
                       className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                     >
                       <Image
@@ -118,13 +146,17 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
       {open && openIndex !== null && (
         <div
           className="fixed inset-0 z-50 bg-stone-900/90 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setOpenIndex(null)}
+          onClick={close}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
           role="dialog"
+          aria-modal="true"
           aria-label={open.alt[locale]}
         >
           <button
+            ref={closeButtonRef}
             type="button"
-            onClick={() => setOpenIndex(null)}
+            onClick={close}
             aria-label={locale === "ro" ? "Închide" : "Close"}
             className="absolute z-10 top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white transition-colors duration-200 p-2"
           >
@@ -148,7 +180,7 @@ export function GalleryGrid({ images, locale }: { images: GalleryImage[]; locale
             onClick={(e) => e.stopPropagation()}
           >
             {/* Plain img (not next/image) so the preload below hits the same cached URL */}
-            <img src={open.src} alt={open.alt[locale]} className="absolute inset-0 w-full h-full object-contain" />
+            <img src={open.src} alt={open.alt[locale]} className="absolute inset-0 w-full h-full object-contain" draggable={false} />
           </div>
 
           <button

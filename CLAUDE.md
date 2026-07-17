@@ -17,10 +17,13 @@
 - **All main pages** — Home, About, Events, Churches, Gallery, Resources, Join (Contact form)
 - **Static data layer** — Single source of truth: churches.ts, events.ts, gallery.ts, resources.ts
 - **Gallery system** — Photo sections auto-organized; event detail pages pull photos from gallery via `getEventPhotos` helper
+- **Gallery lightbox** — Full-screen photo view with keyboard (arrows/Escape), touch swipe navigation, and focus management (focus moves to close button on open, returns to the clicked thumbnail on close)
 - **Church profiles** — 6 churches with addresses, pastors, websites, social links (Instagram/YouTube)
 - **Events** — Past and upcoming gatherings with posters, themes, Bible verses, standardized times (11:00–19:00)
 - **Contact form** — WhatsApp integration (no email backend needed yet)
 - **Church leader names** — Pastors/leaders added: Gratian Vandici, Cristi Tiplea, Dumitru Budac, Florin Baci
+- **SEO & metadata** — Per-page titles/descriptions (RO+EN) on every static and dynamic route, Open Graph + Twitter card tags, `app/sitemap.ts` (includes church/event detail pages), `app/robots.ts`. Domain constant lives in `lib/site.ts` (`SITE_URL`) — update it once tinericrestini.uk is confirmed live.
+- **Image optimization** — All images use `next/image` with correct `sizes`; AVIF/WebP format preference set in `next.config.ts`
 - **Deployment pipeline** — Vercel auto-deploy on main branch push
 
 ### 🔄 In Progress / Recently Added
@@ -77,7 +80,11 @@ tinerii-lui-dumnezeu-uk/
 ├── lib/                           # Helper utilities
 │   ├── events.ts                  # Event helpers: getUpcomingEvents(), getPastEvents(), getEventPhotos(), formatEventDate(), formatEventTimeRange()
 │   ├── i18n.ts                    # Bilingual: t(dict, locale), localePath(locale, path)
-│   └── fonts.ts                   # Font configuration (Bebas Neue, Inter)
+│   ├── fonts.ts                   # Font configuration (Bebas Neue, Inter)
+│   └── site.ts                    # SITE_URL / SITE_NAME constants — used by metadata, sitemap, robots
+│
+├── app/sitemap.ts                 # Dynamic sitemap (static pages + every event + every church, RO+EN)
+├── app/robots.ts                  # robots.txt, points crawlers at the sitemap
 │
 ├── public/
 │   ├── gallery/                   # Event photos organized by folder
@@ -164,7 +171,7 @@ None. All features working; domain DNS propagating.
 
 ## Next Immediate Steps
 
-1. **DNS Propagation** — tinericrestini.uk will be live once Namecheap records propagate (typically 15 min–2 hours)
+1. **DNS Propagation** — tinericrestini.uk will be live once Namecheap records propagate (typically 15 min–2 hours). Once confirmed live, double-check `SITE_URL` in `lib/site.ts` still matches (it's already set to `https://tinericrestini.uk`).
 2. **Email Integration (future)** — Replace WhatsApp placeholder with email backend when needed
 3. **Gallery Tagging (optional)** — Tag existing High Wycombe photos with `eventSlug` to display on event page
 4. **Church Images (optional)** — Add interior photos for churches without building images

@@ -153,6 +153,7 @@ export function ChurchDetailPage({ id, locale }: { id: string; locale: Locale })
                 alt={church.name}
                 width={640}
                 height={420}
+                sizes="(max-width: 640px) 100vw, 640px"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -171,6 +172,7 @@ export function ChurchDetailPage({ id, locale }: { id: string; locale: Locale })
                     alt={`${church.name} – ${i + 1}`}
                     width={480}
                     height={360}
+                    sizes="(max-width: 640px) 50vw, 33vw"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>

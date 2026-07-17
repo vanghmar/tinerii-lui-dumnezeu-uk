@@ -45,6 +45,18 @@ export const events: Event[] = [
   // ── Past ──────────────────────────────────────────────────────────────────
 
   {
+    slug: "2026-05-northampton",
+    title: { ro: "Întâlnirea tinerilor — Northampton", en: "Youth gathering — Northampton" },
+    hostChurchId: "emaus-northampton",
+    date: "2026-05-11T11:00",
+    venueAddress: "Biserica Emaus, Northampton",
+    mapsUrl: "https://maps.google.com/?q=Northampton",
+    summary: {
+      ro: "Tinerii s-au adunat la Northampton pentru o zi de părtășie, jocuri și închinare.",
+      en: "The young people gathered in Northampton for a day of fellowship, games and worship.",
+    },
+  },
+  {
     slug: "2026-05-london",
     title: { ro: "Întâlnirea tinerilor — Londra", en: "Youth gathering — London" },
     hostChurchId: "hristos-leyton-london",
