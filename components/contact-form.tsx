@@ -84,7 +84,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
         ? "Bună! Aș vrea să aflu mai multe despre Tinerii lui Dumnezeu UK."
         : "Hi! I'd like to find out more about Tinerii lui Dumnezeu UK.";
 
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+    window.location.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   }
 
   const input =

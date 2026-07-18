@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/gallery/2026-05-london/photo-2026-05-09-12-46-43.jpg",
+        url: "/images/photo-2026-05-09-12-46-43.jpg",
         width: 1200,
         height: 900,
         alt: "Tinerii lui Dumnezeu UK",

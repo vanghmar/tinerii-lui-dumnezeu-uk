@@ -29,7 +29,7 @@ export function GalleryPage({ locale }: { locale: Locale }) {
           </div>
           <div className="relative w-72 h-48 shrink-0 rounded-2xl overflow-hidden shadow-md rotate-2 mx-auto sm:mx-0">
             <Image
-              src="/gallery/2026-05-london/photo-2026-05-09-12-46-43.jpg"
+              src="/images/photo-2026-05-09-12-46-43.jpg"
               alt="Tinerii lui Dumnezeu"
               fill
               className="object-cover"
