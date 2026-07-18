@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getChurch } from "@/data/churches";
-import { getEvent, getEventPhotos, formatEventDate, formatEventTimeRange, daysUntil } from "@/lib/events";
+import { getEvent, getEventPhotos, formatEventDate, formatEventTimeRange, daysUntil, isEventToday } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Eyebrow, SectionBand } from "@/components/ui";
 import { GalleryGrid } from "@/components/gallery-grid";
@@ -19,6 +19,7 @@ const copy = {
   summary: { ro: "Cum a fost", en: "How it was" },
   photos: { ro: "Fotografii", en: "Photos" },
   inDays: { ro: "zile rămase", en: "days to go" },
+  today: { ro: "🎉 Vă așteptăm cu drag astăzi!", en: "🎉 We can't wait to see you today!" },
 };
 
 export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale }) {
@@ -28,6 +29,7 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
   const church = getChurch(event.hostChurchId);
   const upcoming = new Date(event.date) >= new Date();
   const days = daysUntil(event.date);
+  const today = isEventToday(event.date);
   const photos = getEventPhotos(event.slug);
 
   return (
@@ -45,11 +47,15 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
             <p className="text-stone-500 mt-2 capitalize">
               {formatEventDate(event.date, locale)} · {formatEventTimeRange(event.date)}
             </p>
-            {upcoming && days > 0 && (
-              <p className="text-orange-700 mt-1">
-                {days} {t(copy.inDays, locale)}
-              </p>
-            )}
+            {upcoming && (today ? (
+              <p className="text-orange-700 font-medium mt-1">{t(copy.today, locale)}</p>
+            ) : (
+              days > 0 && (
+                <p className="text-orange-700 mt-1">
+                  {days} {t(copy.inDays, locale)}
+                </p>
+              )
+            ))}
           </div>
           {event.poster && (
             <div className="relative w-56 h-72 shrink-0 rounded-2xl overflow-hidden shadow-md -rotate-2 mx-auto sm:mx-0">
