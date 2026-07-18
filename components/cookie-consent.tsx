@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
-import { localePath } from "@/lib/i18n";
 
 export const CONSENT_STORAGE_KEY = "cookie-consent-v1";
 export const CONSENT_EVENT = "cookie-consent-changed";
@@ -26,7 +24,6 @@ const text = {
     ro: "Folosim cookie-uri pentru a înțelege cum este folosit site-ul și pentru a-l îmbunătăți. Poți accepta toate cookie-urile sau doar pe cele strict necesare.",
     en: "We use cookies to understand how the site is used and to improve it. You can accept all cookies or only the strictly necessary ones.",
   },
-  details: { ro: "Detalii", en: "Details" },
   acceptAll: { ro: "Accept toate", en: "Accept all" },
   essentialOnly: { ro: "Doar necesare", en: "Essential only" },
 } as const;
@@ -53,15 +50,7 @@ export function CookieConsent({ locale }: { locale: Locale }) {
       className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200/70 bg-white/95 backdrop-blur px-5 py-5 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]"
     >
       <div className="mx-auto flex max-w-5xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-stone-600">
-          {text.message[locale]}{" "}
-          <Link
-            href={localePath(locale, "/politica-cookie-uri")}
-            className="text-orange-700 hover:text-orange-800 font-medium link-underline"
-          >
-            {text.details[locale]}
-          </Link>
-        </p>
+        <p className="text-sm text-stone-600">{text.message[locale]}</p>
         <div className="flex shrink-0 items-center gap-3">
           <button
             type="button"

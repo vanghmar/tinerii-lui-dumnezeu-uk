@@ -44,9 +44,6 @@ function Footer({ locale }: { locale: Locale }) {
             ? "„Iată ce plăcut și ce dulce este să locuiască frații împreună!” — Psalmul 133:1"
             : "“How good and pleasant it is when God's people live together in unity!” — Psalm 133:1"}
         </p>
-        <Link href={localePath(locale, "/politica-cookie-uri")} className="hover:text-orange-700 shrink-0">
-          {locale === "ro" ? "Politica de cookie-uri" : "Cookie policy"}
-        </Link>
       </div>
     </footer>
   );
