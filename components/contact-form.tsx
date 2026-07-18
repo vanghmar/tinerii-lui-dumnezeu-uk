@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 
 const WHATSAPP_NUMBER = "447549119705";
@@ -23,6 +23,7 @@ const labels = {
 };
 
 export function ContactForm({ locale }: { locale: Locale }) {
+  const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -69,14 +70,20 @@ export function ContactForm({ locale }: { locale: Locale }) {
     }
   }
 
-  function handleWhatsAppSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const contact = String(data.get("contact") ?? "");
-    const message = String(data.get("message") ?? "");
+  function handleWhatsAppSubmit() {
+    const form = formRef.current;
+    if (!form) return;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const contact = String(data.get("contact") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
 
-    const text = `${message}\n\n— ${name}${contact ? ` (${contact})` : ""}`;
+    const text = message
+      ? `${message}${name ? `\n\n— ${name}` : ""}${contact ? ` (${contact})` : ""}`
+      : locale === "ro"
+        ? "Bună! Aș vrea să aflu mai multe despre Tinerii lui Dumnezeu UK."
+        : "Hi! I'd like to find out more about Tinerii lui Dumnezeu UK.";
+
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
   }
 
@@ -89,7 +96,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
   return (
     <div className="space-y-4">
       {/* Email Form */}
-      <form onSubmit={handleEmailSubmit} className="space-y-4">
+      <form ref={formRef} onSubmit={handleEmailSubmit} className="space-y-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <label className="block">
             <span className="text-sm text-stone-600">{labels.name[locale]}</span>
@@ -124,10 +131,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
               {labels.emailLabel[locale]}
               <button
                 type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleWhatsAppSubmit(e as any);
-                }}
+                onClick={handleWhatsAppSubmit}
                 className="text-orange-700 hover:text-orange-800 font-medium link-underline"
               >
                 {labels.sendWhatsApp[locale]}

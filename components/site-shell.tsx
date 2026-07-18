@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { nav, localePath, type Locale } from "@/lib/i18n";
 import { LangToggle } from "./lang-toggle";
 import { MobileNav } from "./mobile-nav";
+import { CookieConsent } from "./cookie-consent";
+import { Analytics } from "./analytics";
 
 function Header({ locale }: { locale: Locale }) {
   return (
@@ -42,6 +44,9 @@ function Footer({ locale }: { locale: Locale }) {
             ? "„Iată ce plăcut și ce dulce este să locuiască frații împreună!” — Psalmul 133:1"
             : "“How good and pleasant it is when God's people live together in unity!” — Psalm 133:1"}
         </p>
+        <Link href={localePath(locale, "/politica-cookie-uri")} className="hover:text-orange-700 shrink-0">
+          {locale === "ro" ? "Politica de cookie-uri" : "Cookie policy"}
+        </Link>
       </div>
     </footer>
   );
@@ -59,6 +64,8 @@ export function SiteShell({
       <Header locale={locale} />
       <main className="flex-1">{children}</main>
       <Footer locale={locale} />
+      <CookieConsent locale={locale} />
+      <Analytics />
     </div>
   );
 }

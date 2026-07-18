@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     images: [{ url: "/images/hero-youth-meeting.jpg", width: 1200, height: 630, alt: title }],
   },
   twitter: { card: "summary_large_image", title, description },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
