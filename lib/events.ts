@@ -59,3 +59,13 @@ export function daysUntil(date: string): number {
   const ms = new Date(date).getTime() - now().getTime();
   return Math.ceil(ms / 86400000);
 }
+
+export function isEventToday(date: string): boolean {
+  const d = new Date(date);
+  const n = now();
+  return (
+    d.getFullYear() === n.getFullYear() &&
+    d.getMonth() === n.getMonth() &&
+    d.getDate() === n.getDate()
+  );
+}

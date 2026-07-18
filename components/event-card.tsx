@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Event } from "@/data/types";
 import { getChurch } from "@/data/churches";
-import { formatEventDate, formatEventTimeRange, daysUntil } from "@/lib/events";
+import { formatEventDate, formatEventTimeRange, daysUntil, isEventToday } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Card, Eyebrow } from "./ui";
 import { CalendarIcon, ArrowRightIcon } from "./icons";
@@ -19,6 +19,7 @@ export function EventCard({
 }) {
   const church = getChurch(event.hostChurchId);
   const days = daysUntil(event.date);
+  const today = isEventToday(event.date);
   const upcoming = new Date(event.date) >= new Date();
 
   return (
@@ -36,14 +37,14 @@ export function EventCard({
           {church.name}, {church.city}
         </p>
       )}
-      {upcoming && days >= 0 && (
-        <p className="text-sm text-orange-700 mt-2">
+      {upcoming && (today || days >= 0) && (
+        <p className="text-sm font-medium text-orange-700 mt-2">
           {locale === "ro"
-            ? days === 0
-              ? "Astăzi!"
+            ? today
+              ? "🎉 Vă așteptăm cu drag astăzi!"
               : `În ${days} ${days === 1 ? "zi" : "zile"}`
-            : days === 0
-              ? "Today!"
+            : today
+              ? "🎉 We can't wait to see you today!"
               : `In ${days} ${days === 1 ? "day" : "days"}`}
         </p>
       )}

@@ -5,6 +5,7 @@ import { LangToggle } from "./lang-toggle";
 import { MobileNav } from "./mobile-nav";
 import { CookieConsent } from "./cookie-consent";
 import { Analytics } from "./analytics";
+import { EventDayBanner } from "./event-day-banner";
 
 function Header({ locale }: { locale: Locale }) {
   return (
@@ -58,6 +59,7 @@ export function SiteShell({
 }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <EventDayBanner locale={locale} />
       <Header locale={locale} />
       <main className="flex-1">{children}</main>
       <Footer locale={locale} />
