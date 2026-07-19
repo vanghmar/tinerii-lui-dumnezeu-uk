@@ -119,11 +119,32 @@ export const resources: Resource[] = [
     category: "songs",
     language: "en",
   },
+  {
+    title: "Made For More",
+    url: "https://www.youtube.com/watch?v=Ov9Ls4npIrc&list=RDOv9Ls4npIrc&start_radio=1",
+    source: "Josh Baldwin feat. Jenn Johnson",
+    category: "songs",
+    language: "en",
+  },
+  {
+    title: "God You Are",
+    url: "https://www.youtube.com/watch?v=HbtD9mU-afk&list=RDHbtD9mU-afk&start_radio=1",
+    source: "We Are Messengers",
+    category: "songs",
+    language: "en",
+  },
   // Romanian worship songs
   {
     title: "Mă Încred În Tine",
     url: "https://www.youtube.com/watch?v=Nak1g_c5KC4&list=RDNak1g_c5KC4&start_radio=1",
     source: "Sanctus Pro Deo (Cover)",
+    category: "songs",
+    language: "ro",
+  },
+  {
+    title: "Psalmul 46",
+    url: "https://www.youtube.com/watch?v=169-1UjB_Do&list=RDNak1g_c5KC4&index=2",
+    source: "BBSO",
     category: "songs",
     language: "ro",
   },
