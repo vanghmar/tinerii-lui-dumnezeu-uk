@@ -105,6 +105,13 @@ export const resources: Resource[] = [
     category: "songs",
     language: "en",
   },
+  {
+    title: "Make a Way",
+    url: "https://www.youtube.com/watch?v=s48y25fbLXA&list=RDs48y25fbLXA&start_radio=1",
+    source: "Chandler Moore & Brandon Lake | Elevation Worship",
+    category: "songs",
+    language: "en",
+  },
   // Romanian worship songs
   {
     title: "Mă Încred În Tine",

@@ -14,8 +14,8 @@ const copy = {
 };
 
 const sections: { category: ResourceCategory; title: Record<Locale, string>; language?: "en" | "ro" }[] = [
-  { category: "songs", title: { ro: "Cântece recomandate", en: "Recommended songs" }, language: "en" },
-  { category: "songs", title: { ro: "Cântece recomandate", en: "Recommended songs" }, language: "ro" },
+  { category: "songs", title: { ro: "Cântece de închinare recomandate — Engleză", en: "Recommended worship songs — English" }, language: "en" },
+  { category: "songs", title: { ro: "Cântece de închinare recomandate — Română", en: "Recommended worship songs — Romanian" }, language: "ro" },
   { category: "shorts", title: { ro: "Shorts", en: "Shorts" } },
   { category: "preaches", title: { ro: "Predici și mesaje", en: "Preaches and messages" } },
   { category: "channels", title: { ro: "Canale de urmărit", en: "Channels to follow" } },
