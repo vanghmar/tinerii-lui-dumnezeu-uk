@@ -112,6 +112,13 @@ export const resources: Resource[] = [
     category: "songs",
     language: "en",
   },
+  {
+    title: "Good Plans",
+    url: "https://www.youtube.com/watch?v=y6Zipfza6B0&list=RDy6Zipfza6B0&start_radio=1",
+    source: "Red Rocks Worship",
+    category: "songs",
+    language: "en",
+  },
   // Romanian worship songs
   {
     title: "Mă Încred În Tine",
