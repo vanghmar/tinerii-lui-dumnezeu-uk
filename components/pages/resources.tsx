@@ -13,10 +13,12 @@ const copy = {
   },
 };
 
-const sections: { category: ResourceCategory; title: Record<Locale, string> }[] = [
+const sections: { category: ResourceCategory; title: Record<Locale, string>; language?: "en" | "ro" }[] = [
   { category: "shorts", title: { ro: "Shorts", en: "Shorts" } },
   { category: "preaches", title: { ro: "Predici și mesaje", en: "Preaches and messages" } },
   { category: "channels", title: { ro: "Canale de urmărit", en: "Channels to follow" } },
+  { category: "worship", title: { ro: "Cântecele în care ne închinăm", en: "Songs we're worshiping" }, language: "en" },
+  { category: "worship", title: { ro: "Cântecele în care ne închinăm", en: "Songs we're worshiping" }, language: "ro" },
 ];
 
 function ResourceCard({ resource, locale }: { resource: Resource; locale: Locale }) {
@@ -49,11 +51,16 @@ export function ResourcesPage({ locale }: { locale: Locale }) {
 
       <SectionBand>
         <div className="space-y-12">
-          {sections.map(({ category, title }) => {
-            const items = resources.filter((r) => r.category === category);
+          {sections.map(({ category, title, language }) => {
+            const items = resources.filter((r) => {
+              if (r.category !== category) return false;
+              if (language !== undefined) return r.language === language;
+              return true;
+            });
             if (items.length === 0) return null;
+            const sectionKey = language ? `${category}-${language}` : category;
             return (
-              <div key={category}>
+              <div key={sectionKey}>
                 <h2 className="font-serif text-2xl text-stone-800">{title[locale]}</h2>
                 <div className="mt-1 h-px w-16 bg-orange-500" />
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">

@@ -41,13 +41,14 @@ export interface Event {
   photos?: GalleryImage[];
 }
 
-export type ResourceCategory = "shorts" | "preaches" | "channels";
+export type ResourceCategory = "shorts" | "preaches" | "channels" | "worship";
 
 export interface Resource {
   title: string;
   url: string;
   source: string; // channel / author name
   category: ResourceCategory;
+  language?: "en" | "ro"; // for bilingual resources (worship songs); undefined = language-agnostic
   note?: Localized; // optional one-line context on why it's worth watching
 }
 

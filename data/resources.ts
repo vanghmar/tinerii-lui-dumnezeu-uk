@@ -74,4 +74,43 @@ export const resources: Resource[] = [
     source: "Luigi Mitoi",
     category: "channels",
   },
+
+  // ── Worship Playlist ──────────────────────────────────────────────────────
+  // English worship songs
+  {
+    title: "Gratitude",
+    url: "https://youtu.be/dQdfs5S6jyA?si=yPGaDfjaeuY1G9rM",
+    source: "Brandon Lake",
+    category: "worship",
+    language: "en",
+  },
+  {
+    title: "Goodness of God",
+    url: "https://www.youtube.com/watch?v=IvSuGyJQ6oM&list=RDIvSuGyJQ6oM&start_radio=1",
+    source: "Bethel Music",
+    category: "worship",
+    language: "en",
+  },
+  {
+    title: "What A Beautiful Name It Is",
+    url: "https://www.youtube.com/watch?v=nQWFzMvCfLE&list=RDnQWFzMvCfLE&start_radio=1",
+    source: "Hillsong Worship",
+    category: "worship",
+    language: "en",
+  },
+  {
+    title: "Build My Life",
+    url: "https://www.youtube.com/watch?v=g4KZ8uMGync&list=RDg4KZ8uMGync&start_radio=1",
+    source: "Pat Barrett",
+    category: "worship",
+    language: "en",
+  },
+  // Romanian worship songs
+  {
+    title: "Mă Încred În Tine",
+    url: "https://www.youtube.com/watch?v=Nak1g_c5KC4&list=RDNak1g_c5KC4&start_radio=1",
+    source: "Sanctus Pro Deo (Cover)",
+    category: "worship",
+    language: "ro",
+  },
 ];
