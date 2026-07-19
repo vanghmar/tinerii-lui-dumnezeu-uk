@@ -33,12 +33,14 @@ export interface Event {
   venueAddress: string;
   mapsUrl: string;
   preacher?: string;
+  preacherIsSpecialGuest?: boolean; // shows "Preacher — Special guest" instead of just "Preacher"
   theme?: Localized;
   foodAndActivities?: Localized;
   invite?: Localized; // pre-event announcement message
   poster?: string; // flyer image shown before the event
   summary?: Localized;
-  gratitude?: Localized; // post-event thank-you note; replaces foodAndActivities on the detail page when set
+  gratitudeIntro?: Localized; // short thank-you shown under the date/time on the detail page hero, for finished events
+  gratitude?: Localized; // full post-event thank-you note; replaces foodAndActivities on the detail page when set
   photos?: GalleryImage[];
 }
 

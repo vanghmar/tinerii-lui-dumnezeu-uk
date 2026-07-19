@@ -48,8 +48,20 @@ export function EventCard({
               : `In ${days} ${days === 1 ? "day" : "days"}`}
         </p>
       )}
-      {!upcoming && event.summary && (
-        <p className="text-sm text-stone-600 mt-2 line-clamp-2">{t(event.summary, locale)}</p>
+      {!upcoming && event.gratitudeIntro ? (() => {
+        const [heading, ...rest] = t(event.gratitudeIntro, locale).split("\n\n");
+        return (
+          <div className="mt-2">
+            <p className="text-sm font-medium text-stone-800">{heading}</p>
+            {rest.length > 0 && (
+              <p className="text-sm text-stone-600 mt-1 leading-relaxed">{rest.join("\n\n")}</p>
+            )}
+          </div>
+        );
+      })() : (
+        !upcoming && event.summary && (
+          <p className="text-sm text-stone-600 mt-2 line-clamp-2">{t(event.summary, locale)}</p>
+        )
       )}
       {highlight && event.theme && (
         <div className="mt-3 pt-3 border-t border-stone-100">

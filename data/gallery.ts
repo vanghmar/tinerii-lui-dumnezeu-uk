@@ -2,6 +2,29 @@ import type { GalleryImage } from "./types";
 
 export const gallery: GalleryImage[] = [
 
+  // ── 18 Iulie 2026 — Connected Life Church, Birmingham ──────────────────────
+
+  {
+    src: "/gallery/2026-07-birmingham/photo-2026-07-18-18-23-01.jpg",
+    alt: { ro: "Închinare și părtășie", en: "Worship and fellowship" },
+    eventSlug: "2026-07-birmingham",
+    section: { ro: "18 Iulie 2026 — Birmingham", en: "18 July 2026 — Birmingham" },
+    consentChecked: true,
+  },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-19-23-04.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-39.jpg", alt: { ro: "Jocuri în parc", en: "Games in the park" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-43.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-43-2.jpg", alt: { ro: "Jocuri și activități", en: "Games and activities" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-46.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-52.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-54.jpg", alt: { ro: "Părtășie", en: "Fellowship" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-55.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-56.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-57.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-57-2.jpg", alt: { ro: "Jocuri și activități", en: "Games and activities" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-58.jpg", alt: { ro: "Momente din întâlnire", en: "Moments from the gathering" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+  { src: "/gallery/2026-07-birmingham/photo-2026-07-18-22-19-59.jpg", alt: { ro: "Tinerii împreună", en: "Young people together" }, eventSlug: "2026-07-birmingham", consentChecked: true },
+
   // ── 09 Mai 2026 — Biserica lui Hristos din Leyton, Londra ─────────────────
 
   {

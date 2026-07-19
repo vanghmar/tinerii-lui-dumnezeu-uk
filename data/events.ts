@@ -12,10 +12,11 @@ export const events: Event[] = [
     date: "2026-07-18T11:00",
     venueAddress: "Connected Life Church, George Road, Birmingham B23 7RY",
     mapsUrl: "https://maps.google.com/?q=Connected+Life+Church+George+Road+Birmingham+B23+7RY",
-    preacher: "Va fi anunțat",
+    preacher: "Kevin Hash",
+    preacherIsSpecialGuest: true,
     theme: {
-      ro: "Să răspândim Evanghelia — „Căci mie nu mi-e rușine de Evanghelia lui Hristos; fiindcă ea este puterea lui Dumnezeu pentru mântuirea fiecăruia care crede.” (Romani 1:16)",
-      en: "Spreading the Gospel — “For I am not ashamed of the gospel, because it is the power of God that brings salvation to everyone who believes.” (Romans 1:16)",
+      ro: "Să răspândim Evanghelia",
+      en: "Share the Gospel",
     },
     foodAndActivities: {
       ro: "Masă împreună, jocuri și timp de părtășie înainte de programul de închinare.",
@@ -24,6 +25,18 @@ export const events: Event[] = [
     invite: {
       ro: "Dragi tineri, mai sunt 2 săptămâni aproape, și ne întâlnim cu toții din nou! Va fi o întâlnire frumoasă, pregătim chestii faine, și vă așteptăm pe toți. Acum că examenele-s terminate, și gândul la vacanță e aproape omniprezent, vă așteptăm. Unii veți pleca în vacanță — vă dorim un timp plăcut și călătorii fără probleme! Ceilalți care încă nu sunteți plecați pe 18, haideți la întâlnirea cu tinerii! 💪 Vă lansăm o provocare: aduceți un prieten sau un coleg de școală! Vom avea o tematică to spread out and about, ca să zic așa, și un invitat pe cinste!",
       en: "Dear young people, in about 2 weeks we're all gathering again! It will be a beautiful gathering, we're preparing some great things, and we're waiting for all of you. Now that exams are over and thoughts of holidays are almost everywhere, we're waiting for you. Some of you will be going on holiday — we wish you a lovely time and safe travels! Everyone else who isn't away on the 18th, come to the youth meeting! 💪 We're launching a challenge: bring a friend or a school classmate! We'll have a theme all about spreading out and about, so to speak, and a very special guest!",
+    },
+    summary: {
+      ro: "Mulțumim pentru că ne-ați făcut ziua specială! ❤️",
+      en: "Thank you for making our day special! ❤️",
+    },
+    gratitudeIntro: {
+      ro: "Mulțumim celor care s-au alăturat nouă! ❤️\n\nCu adevărat, nu ar fi fost la fel fără fiecare dintre voi.",
+      en: "Thank you to everyone who joined us! ❤️\n\nIt truly wouldn't have been the same without each and every one of you.",
+    },
+    gratitude: {
+      ro: "Am petrecut o vreme uimitoare împreună ca frați și surori în Hristos, bucurându-ne de prezența lui Dumnezeu, conversații semnificative, activități distractive și crescând prin Cuvântul Său. Am fost binecuvântați cu mâncare delicioasă, pregătită cu dragoste de surorile noastre, și de lideri care au avut grijă și au încurajat pe fiecare dintre noi pe parcursul zilei.\n\nAceste fotografii nu surprind pe deplin bucuria, râsul, părtășia și binecuvântările pe care le-am trăit, dar sperăm că vă dau o privire asupra momentelor minunate pe care le-am împărtășit.\n\nUn mulțumesc special pentru oaspeții noștri, Kevin și fiul lui, Mo, că s-au alăturat nouă și au făcut această întâlnire și mai memorabilă. A fost o binecuvântare să vă avem cu noi.\n\nDumnezeu să continue să vă binecuvânteze, să vă întărească credința și să vă călăuzească pașii. Abia așteptăm să vă vedem la următoarea noastră întâlnire!\n\nDumnezeu să vă binecuvânteze pe toți. Până data viitoare! ❤️",
+      en: "We had an amazing time together as brothers and sisters in Christ, enjoying God's presence, meaningful conversations, fun activities, and growing through His Word. We were also blessed with delicious food, lovingly prepared by our sisters, and by leaders who cared for and encouraged every single one of us throughout the day.\n\nThese photos don't fully capture the joy, laughter, fellowship, and blessings we experienced, but we hope they give you a glimpse of the wonderful moments we shared together.\n\nA special thank you to our guest, Kevin, and his son, Mo, for joining us and making this gathering even more memorable. It was a blessing to have you with us.\n\nMay God continue to bless each one of you, strengthen your faith, and guide your steps. We can't wait to see you again at our next youth meeting!\n\nGod bless you all. Until next time! ❤️",
     },
     poster: "/events/2026-07-birmingham-poster.jpg",
   },

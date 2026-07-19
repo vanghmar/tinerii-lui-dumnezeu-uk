@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { nav, localePath, type Locale } from "@/lib/i18n";
-import { LangToggle } from "./lang-toggle";
+import { LanguageSelector } from "./language-selector";
 import { MobileNav } from "./mobile-nav";
 import { CookieConsent } from "./cookie-consent";
 import { Analytics } from "./analytics";
@@ -27,7 +27,7 @@ function Header({ locale }: { locale: Locale }) {
               {item.label[locale]}
             </Link>
           ))}
-          <LangToggle locale={locale} />
+          <LanguageSelector locale={locale} />
         </nav>
         <MobileNav locale={locale} />
       </div>

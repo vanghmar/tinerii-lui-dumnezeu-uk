@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, localePath, type Locale } from "@/lib/i18n";
-import { LangToggle } from "./lang-toggle";
+import { LanguageSelector } from "./language-selector";
 
 export function MobileNav({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
@@ -59,7 +59,7 @@ export function MobileNav({ locale }: { locale: Locale }) {
               </Link>
             ))}
             <div className="pt-5">
-              <LangToggle locale={locale} />
+              <LanguageSelector locale={locale} />
             </div>
           </nav>
         </div>

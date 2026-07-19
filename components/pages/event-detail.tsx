@@ -11,11 +11,12 @@ const copy = {
   back: { ro: "← Toate evenimentele", en: "← All events" },
   host: { ro: "Biserica gazdă", en: "Host church" },
   when: { ro: "Data și ora", en: "Date and time" },
-  where: { ro: "Locația", en: "Location" },
   preacher: { ro: "Predicator", en: "Preacher" },
+  preacherSpecialGuest: { ro: "Predicator - Oaspete Special", en: "Preacher - Special guest" },
   theme: { ro: "Tema", en: "Theme" },
   food: { ro: "Mâncare și activități", en: "Food and activities" },
   invite: { ro: "Vă așteptăm!", en: "We can't wait to see you!" },
+  gratitude: { ro: "Gânduri", en: "Thoughts" },
   summary: { ro: "Cum a fost", en: "How it was" },
   photos: { ro: "Fotografii", en: "Photos" },
   inDays: { ro: "zile rămase", en: "days to go" },
@@ -56,6 +57,17 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
                 </p>
               )
             ))}
+            {!upcoming && event.gratitudeIntro && (() => {
+              const [heading, ...rest] = t(event.gratitudeIntro, locale).split("\n\n");
+              return (
+                <div className="mt-4 max-w-xl">
+                  <p className="text-stone-800 font-medium">{heading}</p>
+                  {rest.length > 0 && (
+                    <p className="text-stone-600 mt-1.5 leading-relaxed">{rest.join("\n\n")}</p>
+                  )}
+                </div>
+              );
+            })()}
           </div>
           {event.poster && (
             <div className="relative w-56 h-72 shrink-0 rounded-2xl overflow-hidden shadow-md -rotate-2 mx-auto sm:mx-0">
@@ -80,24 +92,13 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
               </dd>
             </div>
           )}
-          <div>
-            <dt><Eyebrow muted>{t(copy.where, locale)}</Eyebrow></dt>
-            <dd className="text-stone-700 mt-1">
-              {event.venueAddress}
-              <br />
-              <a
-                href={event.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-orange-700 hover:text-orange-800"
-              >
-                Google Maps ↗
-              </a>
-            </dd>
-          </div>
           {event.preacher && (
             <div>
-              <dt><Eyebrow muted>{t(copy.preacher, locale)}</Eyebrow></dt>
+              <dt>
+                <Eyebrow muted>
+                  {t(event.preacherIsSpecialGuest ? copy.preacherSpecialGuest : copy.preacher, locale)}
+                </Eyebrow>
+              </dt>
               <dd className="text-stone-700 mt-1">{event.preacher}</dd>
             </div>
           )}
@@ -107,7 +108,7 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
               <dd className="text-stone-700 mt-1">{t(event.theme, locale)}</dd>
             </div>
           )}
-          {event.foodAndActivities && (
+          {event.foodAndActivities && !event.gratitude && (
             <div className="sm:col-span-2">
               <dt><Eyebrow muted>{t(copy.food, locale)}</Eyebrow></dt>
               <dd className="text-stone-700 mt-1">{t(event.foodAndActivities, locale)}</dd>
@@ -122,7 +123,15 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
             </p>
           </div>
         )}
-        {event.summary && (
+        {event.gratitude && (
+          <div className="max-w-2xl mt-10 border-l-4 border-orange-300 pl-5">
+            <Eyebrow muted>{t(copy.gratitude, locale)}</Eyebrow>
+            <p className="text-sm text-stone-600 leading-relaxed italic mt-2 whitespace-pre-line">
+              {t(event.gratitude, locale)}
+            </p>
+          </div>
+        )}
+        {event.summary && !event.gratitude && (
           <div className="max-w-2xl mt-10">
             <Eyebrow muted>{t(copy.summary, locale)}</Eyebrow>
             <p className="text-stone-600 leading-relaxed mt-2">{t(event.summary, locale)}</p>
