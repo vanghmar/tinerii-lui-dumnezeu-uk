@@ -133,6 +133,13 @@ export const resources: Resource[] = [
     category: "songs",
     language: "en",
   },
+  {
+    title: "Trust You Again",
+    url: "https://www.youtube.com/watch?v=1Tft0R0Ynxc&list=RDHbtD9mU-afk&index=3",
+    source: "Stephen McWhirter",
+    category: "songs",
+    language: "en",
+  },
   // Romanian worship songs
   {
     title: "Mă Încred În Tine",
