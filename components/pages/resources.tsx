@@ -8,8 +8,8 @@ const copy = {
   eyebrow: { ro: "Resurse", en: "Resources" },
   title: { ro: "Ce ascultăm și ce urmărim", en: "What we're watching and listening to" },
   intro: {
-    ro: "În grupul nostru de WhatsApp, tinerii împărtășesc adesea scurte videoclipuri, predici și canale care i-au ajutat în umblarea lor cu Dumnezeu. Le adunăm aici, cu bucurie, pentru oricine ar putea găsi în ele ceva important.",
-    en: "In our WhatsApp group, young people often share short videos, messages and channels that have helped them in their walk with God. We're gathering them here, gladly, for anyone who might find something important in them.",
+    ro: "În grupul nostru de WhatsApp, tinerii împărtășesc adesea scurte videoclipuri, predici, canale și cântece creștine pe care le ascultăm și care ne-au ajutat în umblarea cu Dumnezeu. Le adunăm aici, cu bucurie, pentru oricine ar putea găsi în ele ceva important.",
+    en: "In our WhatsApp group, young people often share short videos, messages, channels and worship songs we enjoy that have helped us in our walk with God. We're gathering them here, gladly, for anyone who might find something important in them.",
   },
 };
 
