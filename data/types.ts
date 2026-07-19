@@ -38,10 +38,11 @@ export interface Event {
   invite?: Localized; // pre-event announcement message
   poster?: string; // flyer image shown before the event
   summary?: Localized;
+  gratitude?: Localized; // post-event thank-you note; replaces foodAndActivities on the detail page when set
   photos?: GalleryImage[];
 }
 
-export type ResourceCategory = "shorts" | "preaches" | "channels" | "worship";
+export type ResourceCategory = "shorts" | "preaches" | "channels" | "songs";
 
 export interface Resource {
   title: string;

@@ -14,11 +14,11 @@ const copy = {
 };
 
 const sections: { category: ResourceCategory; title: Record<Locale, string>; language?: "en" | "ro" }[] = [
+  { category: "songs", title: { ro: "Cântece recomandate", en: "Recommended songs" }, language: "en" },
+  { category: "songs", title: { ro: "Cântece recomandate", en: "Recommended songs" }, language: "ro" },
   { category: "shorts", title: { ro: "Shorts", en: "Shorts" } },
   { category: "preaches", title: { ro: "Predici și mesaje", en: "Preaches and messages" } },
   { category: "channels", title: { ro: "Canale de urmărit", en: "Channels to follow" } },
-  { category: "worship", title: { ro: "Cântecele în care ne închinăm", en: "Songs we're worshiping" }, language: "en" },
-  { category: "worship", title: { ro: "Cântecele în care ne închinăm", en: "Songs we're worshiping" }, language: "ro" },
 ];
 
 function ResourceCard({ resource, locale }: { resource: Resource; locale: Locale }) {
