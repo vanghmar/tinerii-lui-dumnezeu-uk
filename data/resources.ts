@@ -140,6 +140,13 @@ export const resources: Resource[] = [
     category: "songs",
     language: "en",
   },
+  {
+    title: "Look At What God Has Done",
+    url: "https://www.youtube.com/watch?v=JgV1pt5eLuY&list=RDJgV1pt5eLuY&start_radio=1",
+    source: "Lost & Found",
+    category: "songs",
+    language: "en",
+  },
   // Romanian worship songs
   {
     title: "Mă Încred În Tine",
