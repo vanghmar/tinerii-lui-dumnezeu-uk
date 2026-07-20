@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 
 export const CONSENT_STORAGE_KEY = "cookie-consent-v1";
@@ -30,10 +30,32 @@ const text = {
 
 export function CookieConsent({ locale }: { locale: Locale }) {
   const [visible, setVisible] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setVisible(getStoredConsent() === null);
   }, []);
+
+  // Reserve space at the bottom of the page equal to the banner's height so
+  // scrolled content stops before it, instead of the fixed banner covering
+  // (and swallowing clicks on) whatever happens to be at the bottom.
+  useEffect(() => {
+    if (!visible) {
+      document.body.style.paddingBottom = "";
+      return;
+    }
+    function updatePadding() {
+      if (bannerRef.current) {
+        document.body.style.paddingBottom = `${bannerRef.current.offsetHeight}px`;
+      }
+    }
+    updatePadding();
+    window.addEventListener("resize", updatePadding);
+    return () => {
+      window.removeEventListener("resize", updatePadding);
+      document.body.style.paddingBottom = "";
+    };
+  }, [visible]);
 
   if (!visible) return null;
 
@@ -44,6 +66,7 @@ export function CookieConsent({ locale }: { locale: Locale }) {
 
   return (
     <div
+      ref={bannerRef}
       role="dialog"
       aria-live="polite"
       aria-label={locale === "ro" ? "Consimțământ cookie-uri" : "Cookie consent"}
