@@ -155,4 +155,11 @@ export const resources: Resource[] = [
     category: "songs",
     language: "ro",
   },
+  {
+    title: "93",
+    url: "https://www.youtube.com/watch?v=mtIkMgCzUgo&list=RDmtIkMgCzUgo&start_radio=1",
+    source: "Creation House, Sergiu Drăgoi, Levi Borz",
+    category: "songs",
+    language: "ro",
+  },
 ];
