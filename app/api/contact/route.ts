@@ -1,7 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const CONTACT_EMAIL = "contact.tinericrestini@gmail.com";
 
 export async function POST(request: NextRequest) {
@@ -25,6 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email via Resend
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const result = await resend.emails.send({
       from: "Tinerii lui Dumnezeu <noreply@tinericrestini.uk>",
       to: CONTACT_EMAIL,

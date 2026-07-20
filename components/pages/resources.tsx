@@ -1,8 +1,8 @@
 import { resources } from "@/data/resources";
-import type { Resource, ResourceCategory } from "@/data/types";
+import type { ResourceCategory } from "@/data/types";
 import { t, type Locale } from "@/lib/i18n";
-import { Card, Eyebrow, SectionBand } from "@/components/ui";
-import { PlayIcon } from "@/components/icons";
+import { Eyebrow, SectionBand } from "@/components/ui";
+import { ResourceGrid } from "@/components/resource-grid";
 
 const copy = {
   eyebrow: { ro: "Resurse", en: "Resources" },
@@ -20,25 +20,6 @@ const sections: { category: ResourceCategory; title: Record<Locale, string>; lan
   { category: "preaches", title: { ro: "Predici și mesaje", en: "Preaches and messages" } },
   { category: "channels", title: { ro: "Canale de urmărit", en: "Channels to follow" } },
 ];
-
-function ResourceCard({ resource, locale }: { resource: Resource; locale: Locale }) {
-  return (
-    <a
-      href={resource.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block"
-    >
-      <Card className="h-full flex items-start gap-3">
-        <PlayIcon className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
-        <div>
-          <p className="text-stone-800 leading-snug">{resource.title}</p>
-          <p className="text-sm text-stone-400 mt-1">{resource.source}</p>
-        </div>
-      </Card>
-    </a>
-  );
-}
 
 export function ResourcesPage({ locale }: { locale: Locale }) {
   return (
@@ -63,11 +44,7 @@ export function ResourcesPage({ locale }: { locale: Locale }) {
               <div key={sectionKey}>
                 <h2 className="font-serif text-2xl text-stone-800">{title[locale]}</h2>
                 <div className="mt-1 h-px w-16 bg-orange-500" />
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-                  {items.map((r) => (
-                    <ResourceCard key={r.url} resource={r} locale={locale} />
-                  ))}
-                </div>
+                <ResourceGrid items={items} locale={locale} />
               </div>
             );
           })}
