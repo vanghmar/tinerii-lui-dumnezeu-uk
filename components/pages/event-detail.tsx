@@ -6,6 +6,8 @@ import { getEvent, getEventPhotos, formatEventDate, formatEventTimeRange, daysUn
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Eyebrow, SectionBand } from "@/components/ui";
 import { GalleryGrid } from "@/components/gallery-grid";
+import { JsonLd } from "@/components/json-ld";
+import { eventJsonLd } from "@/lib/structured-data";
 
 const copy = {
   back: { ro: "← Toate evenimentele", en: "← All events" },
@@ -35,6 +37,7 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
 
   return (
     <>
+      <JsonLd data={eventJsonLd(event, locale)} />
       <SectionBand tint>
         <div className="flex flex-col sm:flex-row sm:items-start gap-8">
           <div className="flex-1">

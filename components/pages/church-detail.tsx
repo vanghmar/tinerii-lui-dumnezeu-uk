@@ -7,6 +7,8 @@ import { formatEventDate } from "@/lib/events";
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Eyebrow, SectionBand } from "@/components/ui";
 import { MapPinIcon } from "@/components/icons";
+import { JsonLd } from "@/components/json-ld";
+import { churchJsonLd } from "@/lib/structured-data";
 
 const copy = {
   back: { ro: "← Toate bisericile", en: "← All churches" },
@@ -36,6 +38,7 @@ export function ChurchDetailPage({ id, locale }: { id: string; locale: Locale })
 
   return (
     <>
+      <JsonLd data={churchJsonLd(church, locale)} />
       <SectionBand tint>
         <Link
           href={localePath(locale, "/biserici")}

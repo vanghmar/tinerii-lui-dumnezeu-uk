@@ -6,6 +6,8 @@ import { MobileNav } from "./mobile-nav";
 import { CookieConsent } from "./cookie-consent";
 import { Analytics } from "./analytics";
 import { EventDayBanner } from "./event-day-banner";
+import { JsonLd } from "./json-ld";
+import { organizationJsonLd } from "@/lib/structured-data";
 
 function Header({ locale }: { locale: Locale }) {
   return (
@@ -59,6 +61,7 @@ export function SiteShell({
 }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <JsonLd data={organizationJsonLd()} />
       <EventDayBanner locale={locale} />
       <Header locale={locale} />
       <main className="flex-1">{children}</main>
