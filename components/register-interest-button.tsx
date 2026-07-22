@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import type { Locale } from "@/lib/i18n";
+import { useState, useEffect, useRef } from "react";
 import { CloseIcon } from "./icons";
 
 const copy = {
@@ -29,19 +28,23 @@ export function RegisterInterestButton({
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    if (!open) return;
     function handleEscape(e: KeyboardEvent) {
-      if ((e.key === "Escape" || e.keyCode === 27) && open) {
-        closeModal();
-      }
+      if (e.key === "Escape") closeModal();
     }
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [open]);
 
+  useEffect(() => {
     if (open) {
-      document.addEventListener("keydown", handleEscape);
-      return () => {
-        document.removeEventListener("keydown", handleEscape);
-      };
+      closeButtonRef.current?.focus();
+    } else {
+      triggerButtonRef.current?.focus();
     }
   }, [open]);
 
@@ -49,6 +52,7 @@ export function RegisterInterestButton({
     setOpen(false);
     setSuccess(false);
     setError(false);
+    setLoading(false);
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -68,11 +72,13 @@ export function RegisterInterestButton({
     setLoading(true);
     setError(false);
 
+    const timestamp = new Date().toISOString();
+
     try {
       const response = await fetch("/api/register-interest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, prename, contactMethod, church, eventSlug, timestamp: new Date().toISOString() }),
+        body: JSON.stringify({ name, prename, contactMethod, church, eventSlug, timestamp }),
       });
 
       if (response.ok) {
@@ -97,6 +103,7 @@ export function RegisterInterestButton({
     <>
       <button
         type="button"
+        ref={triggerButtonRef}
         onClick={() => setOpen(true)}
         className="inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-medium bg-orange-600 text-orange-50 hover:bg-orange-700 hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out"
       >
@@ -111,9 +118,13 @@ export function RegisterInterestButton({
           <div
             className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-xl"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="register-interest-title"
           >
             <button
               type="button"
+              ref={closeButtonRef}
               onClick={closeModal}
               aria-label="Close"
               className="absolute top-4 right-4 text-stone-400 hover:text-stone-600"
@@ -121,7 +132,7 @@ export function RegisterInterestButton({
               <CloseIcon className="w-5 h-5" />
             </button>
 
-            <h3 className="font-serif text-2xl text-stone-800">{copy.title}</h3>
+            <h3 id="register-interest-title" className="font-serif text-2xl text-stone-800">{copy.title}</h3>
             <p className="text-sm text-stone-500 mt-1">{copy.subtitle(eventTitle)}</p>
 
             {success ? (
