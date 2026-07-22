@@ -25,13 +25,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const feedbackValue = feedback.trim();
+    const suggestionsValue = suggestions.trim();
     const nameValue = String(name ?? "").trim();
     const emailValue = String(email ?? "").trim();
     const whatsappValue = String(whatsapp ?? "").trim();
 
+    if (!feedbackValue || !suggestionsValue) {
+      return NextResponse.json(
+        { success: false, error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
     if (
-      feedback.length > 1000 ||
-      suggestions.length > 1000 ||
+      feedbackValue.length > 1000 ||
+      suggestionsValue.length > 1000 ||
       nameValue.length > 100 ||
       emailValue.length > 100 ||
       whatsappValue.length > 20
@@ -55,8 +64,8 @@ export async function POST(request: NextRequest) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        feedback: escapeJson(feedback),
-        suggestions: escapeJson(suggestions),
+        feedback: escapeJson(feedbackValue),
+        suggestions: escapeJson(suggestionsValue),
         name: escapeJson(nameValue),
         email: escapeJson(emailValue),
         whatsapp: escapeJson(whatsappValue),
