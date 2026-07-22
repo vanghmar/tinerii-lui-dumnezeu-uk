@@ -5,6 +5,7 @@ import { formatEventDate, formatEventTimeRange, daysUntil, isEventToday } from "
 import { localePath, t, type Locale } from "@/lib/i18n";
 import { Card, Eyebrow } from "./ui";
 import { CalendarIcon, ArrowRightIcon } from "./icons";
+import { RegisterInterestButton } from "./register-interest-button";
 
 export function EventCard({
   event,
@@ -69,6 +70,11 @@ export function EventCard({
             {locale === "ro" ? "Tema" : "Theme"}
           </p>
           <p className="text-sm text-stone-600 mt-1 line-clamp-2">{t(event.theme, locale)}</p>
+        </div>
+      )}
+      {upcoming && (
+        <div className="mt-3">
+          <RegisterInterestButton eventSlug={event.slug} eventTitle={t(event.title, locale)} />
         </div>
       )}
       <Link
