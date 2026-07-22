@@ -8,8 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const eventPaths = events.map((e) => `/evenimente/${e.slug}`);
   const churchPaths = churches.map((c) => `/biserici/${c.id}`);
   const now = new Date();
-  return [...paths, ...eventPaths, ...churchPaths].flatMap((p) => [
-    { url: `${SITE_URL}${p || "/"}`, lastModified: now },
-    { url: `${SITE_URL}/en${p}`, lastModified: now },
-  ]);
+  return [
+    ...[...paths, ...eventPaths, ...churchPaths].flatMap((p) => [
+      { url: `${SITE_URL}${p || "/"}`, lastModified: now },
+      { url: `${SITE_URL}/en${p}`, lastModified: now },
+    ]),
+    { url: `${SITE_URL}/en/feedback`, lastModified: now },
+  ];
 }
