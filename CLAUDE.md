@@ -183,6 +183,13 @@ None. All features working; domain DNS propagating.
 ### Do NOT auto-deploy
 Only deploy when user explicitly says "deploy" / "push live" / "upload to vercel".
 
+### Staging environment
+- **Staging URL:** https://tinerii-lui-dumnezeu-uk-staging.vercel.app (separate Vercel project `tinerii-lui-dumnezeu-uk-staging`, same GitHub repo, `staging` branch)
+- **Staging local clone:** `/tmp/tinerii-staging` (re-clone if /tmp is cleared: `git clone https://github.com/vanghmar/tinerii-lui-dumnezeu-uk.git /tmp/tinerii-staging && cd /tmp/tinerii-staging && git checkout staging`)
+- **Deploy to staging:** `cd /tmp/tinerii-staging && git pull && npx vercel --prod --yes` (deploys the `staging` branch to the staging project — "--prod" here just means "the main deployment of the staging project," not the live site)
+- **Workflow:** make changes on `staging` branch → push → deploy to staging URL → test → once approved, merge `staging` into `main` → deploy production as usual (`cd ~/Desktop/tinerii-lui-dumnezeu-uk && npx vercel --prod --yes`)
+- **Production stays untouched** by staging deploys — different Vercel project, different URL, tinericrestini.uk only updates when you deploy from the main project
+
 ### Type-check before committing
 ```bash
 npx tsc --noEmit  # Always run first

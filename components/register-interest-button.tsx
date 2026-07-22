@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { CloseIcon } from "./icons";
+import { churches } from "@/data/churches";
+
+const OTHER_OPTION = "Other";
 
 const copy = {
   cta: "Register my interest",
@@ -10,7 +13,9 @@ const copy = {
   name: "Name",
   prename: "Prename",
   contactMethod: "How we should contact you",
-  church: "Church or Other",
+  church: "Church",
+  churchPlaceholder: "Select your church",
+  otherChurch: "Please specify",
   submit: "Register Interest",
   submitting: "Submitting...",
   success: "Thank you for your interest, we will be in touch",
@@ -28,6 +33,7 @@ export function RegisterInterestButton({
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [selectedChurch, setSelectedChurch] = useState("");
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -53,6 +59,7 @@ export function RegisterInterestButton({
     setSuccess(false);
     setError(false);
     setLoading(false);
+    setSelectedChurch("");
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -62,7 +69,10 @@ export function RegisterInterestButton({
     const name = String(data.get("name") ?? "").trim();
     const prename = String(data.get("prename") ?? "").trim();
     const contactMethod = String(data.get("contactMethod") ?? "").trim();
-    const church = String(data.get("church") ?? "").trim();
+    const church =
+      selectedChurch === OTHER_OPTION
+        ? String(data.get("churchOther") ?? "").trim()
+        : selectedChurch;
 
     if (!name || !prename || !contactMethod || !church) {
       setError(true);
@@ -153,8 +163,31 @@ export function RegisterInterestButton({
                 </label>
                 <label className="block">
                   <span className="text-sm text-stone-600">{copy.church}</span>
-                  <input name="church" required className={`${input} mt-1`} disabled={loading} />
+                  <select
+                    name="church"
+                    required
+                    value={selectedChurch}
+                    onChange={(e) => setSelectedChurch(e.target.value)}
+                    className={`${input} mt-1`}
+                    disabled={loading}
+                  >
+                    <option value="" disabled>
+                      {copy.churchPlaceholder}
+                    </option>
+                    {churches.map((church) => (
+                      <option key={church.id} value={church.name}>
+                        {church.name}
+                      </option>
+                    ))}
+                    <option value={OTHER_OPTION}>{OTHER_OPTION}</option>
+                  </select>
                 </label>
+                {selectedChurch === OTHER_OPTION && (
+                  <label className="block">
+                    <span className="text-sm text-stone-600">{copy.otherChurch}</span>
+                    <input name="churchOther" required className={`${input} mt-1`} disabled={loading} />
+                  </label>
+                )}
 
                 <button
                   type="submit"
