@@ -33,6 +33,7 @@ export function FeedbackForm() {
 
     if (!feedback || !suggestions) {
       setError(true);
+      setTimeout(() => setError(false), 4000);
       return;
     }
 
@@ -51,10 +52,12 @@ export function FeedbackForm() {
         form.reset();
       } else {
         setError(true);
+        setTimeout(() => setError(false), 4000);
       }
     } catch (err) {
       console.error("Feedback submission error:", err);
       setError(true);
+      setTimeout(() => setError(false), 4000);
     } finally {
       setLoading(false);
     }
@@ -64,7 +67,11 @@ export function FeedbackForm() {
     "w-full rounded-xl border border-stone-200 px-4 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 transition-all duration-200 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-300 focus:shadow-sm disabled:opacity-50 disabled:cursor-not-allowed";
 
   if (success) {
-    return <p className="text-sm text-green-700 font-medium">{copy.success}</p>;
+    return (
+      <p role="status" className="text-sm text-green-700 font-medium">
+        {copy.success}
+      </p>
+    );
   }
 
   return (
@@ -105,7 +112,11 @@ export function FeedbackForm() {
         {loading ? copy.submitting : copy.submit}
       </button>
 
-      {error && <p className="text-sm text-red-700 font-medium">{copy.error}</p>}
+      {error && (
+        <p role="alert" className="text-sm text-red-700 font-medium">
+          {copy.error}
+        </p>
+      )}
     </form>
   );
 }
