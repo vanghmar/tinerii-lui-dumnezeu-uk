@@ -12,12 +12,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate inputs
+    if (
+      typeof name !== "string" ||
+      typeof prename !== "string" ||
+      typeof contactMethod !== "string" ||
+      typeof church !== "string" ||
+      typeof eventSlug !== "string"
+    ) {
+      return NextResponse.json(
+        { success: false, error: "Invalid input types" },
+        { status: 400 }
+      );
+    }
+
     if (
       name.length > 200 ||
       prename.length > 200 ||
-      contactMethod.length > 200 ||
+      contactMethod.length > 100 ||
       church.length > 200 ||
-      eventSlug.length > 200
+      eventSlug.length > 50
     ) {
       return NextResponse.json(
         { success: false, error: "Input too long" },
@@ -37,11 +51,20 @@ export async function POST(request: NextRequest) {
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, prename, contactMethod, church, eventSlug }),
+      body: JSON.stringify({
+        name: escapeJson(name),
+        prename: escapeJson(prename),
+        contactMethod: escapeJson(contactMethod),
+        church: escapeJson(church),
+        eventSlug: escapeJson(eventSlug),
+      }),
     });
 
     if (!response.ok) {
-      console.error("Google Sheets webhook error:", response.status);
+      console.error("Google Sheets webhook error:", {
+        status: response.status,
+        statusText: response.statusText,
+      });
       return NextResponse.json(
         { success: false, error: "Failed to record interest" },
         { status: 500 }
@@ -56,4 +79,18 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+function escapeJson(text: string): string {
+  const map: { [key: string]: string } = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
+    "\n": "\\n",
+    "\r": "\\r",
+    "\t": "\\t",
+  };
+  return text.replace(/[&<>"'\n\r\t]/g, (char) => map[char]);
 }
