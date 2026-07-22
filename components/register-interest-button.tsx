@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { CloseIcon } from "./icons";
 import { churches } from "@/data/churches";
 
@@ -34,8 +35,13 @@ export function RegisterInterestButton({
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [selectedChurch, setSelectedChurch] = useState("");
+  const [mounted, setMounted] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -120,7 +126,7 @@ export function RegisterInterestButton({
         {copy.cta}
       </button>
 
-      {open && (
+      {open && mounted && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/50 px-4"
           onClick={closeModal}
@@ -201,7 +207,8 @@ export function RegisterInterestButton({
               </form>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
