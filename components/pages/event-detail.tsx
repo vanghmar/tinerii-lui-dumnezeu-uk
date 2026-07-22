@@ -8,6 +8,7 @@ import { Eyebrow, SectionBand } from "@/components/ui";
 import { GalleryGrid } from "@/components/gallery-grid";
 import { JsonLd } from "@/components/json-ld";
 import { eventJsonLd } from "@/lib/structured-data";
+import { RegisterInterestButton } from "@/components/register-interest-button";
 
 const copy = {
   back: { ro: "← Toate evenimentele", en: "← All events" },
@@ -60,6 +61,11 @@ export function EventDetailPage({ slug, locale }: { slug: string; locale: Locale
                 </p>
               )
             ))}
+            {upcoming && (
+              <div className="mt-6">
+                <RegisterInterestButton eventSlug={event.slug} eventTitle={t(event.title, locale)} />
+              </div>
+            )}
             {!upcoming && event.gratitudeIntro && (() => {
               const [heading, ...rest] = t(event.gratitudeIntro, locale).split("\n\n");
               return (
