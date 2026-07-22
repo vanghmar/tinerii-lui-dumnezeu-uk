@@ -8,6 +8,7 @@ import { Analytics } from "./analytics";
 import { EventDayBanner } from "./event-day-banner";
 import { JsonLd } from "./json-ld";
 import { organizationJsonLd } from "@/lib/structured-data";
+import { FeedbackCtaButton } from "./feedback-cta-button";
 
 function Header({ locale }: { locale: Locale }) {
   return (
@@ -68,6 +69,7 @@ export function SiteShell({
       <Footer locale={locale} />
       <CookieConsent locale={locale} />
       <Analytics />
+      <FeedbackCtaButton />
     </div>
   );
 }
