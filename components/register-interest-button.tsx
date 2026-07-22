@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Locale } from "@/lib/i18n";
 import { CloseIcon } from "./icons";
 
 const copy = {
   cta: "Register my interest",
   title: "Register your interest",
-  subtitle: (eventTitle: string) => `You're registering interest for: ${eventTitle}`,
+  subtitle: (eventTitle: string) => `Registering interest for: ${eventTitle}`,
   name: "Name",
   prename: "Prename",
   contactMethod: "How we should contact you",
@@ -29,6 +29,21 @@ export function RegisterInterestButton({
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    function handleEscape(e: KeyboardEvent) {
+      if ((e.key === "Escape" || e.keyCode === 27) && open) {
+        closeModal();
+      }
+    }
+
+    if (open) {
+      document.addEventListener("keydown", handleEscape);
+      return () => {
+        document.removeEventListener("keydown", handleEscape);
+      };
+    }
+  }, [open]);
 
   function closeModal() {
     setOpen(false);
@@ -57,7 +72,7 @@ export function RegisterInterestButton({
       const response = await fetch("/api/register-interest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, prename, contactMethod, church, eventSlug }),
+        body: JSON.stringify({ name, prename, contactMethod, church, eventSlug, timestamp: new Date().toISOString() }),
       });
 
       if (response.ok) {
