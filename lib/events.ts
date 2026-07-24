@@ -55,9 +55,15 @@ export function formatEventTimeRange(date: string): string {
   return `${formatEventTime(start.toISOString())} – ${formatEventTime(end.toISOString())}`;
 }
 
+// Whole calendar days remaining, counted at UTC midnight boundaries — so the
+// count ticks over exactly once a day regardless of the event's own time of
+// day (e.g. an 11:00 event is still "1 day away" all the way until midnight).
 export function daysUntil(date: string): number {
-  const ms = new Date(date).getTime() - now().getTime();
-  return Math.ceil(ms / 86400000);
+  const target = new Date(date);
+  const current = now();
+  const startOfTarget = Date.UTC(target.getUTCFullYear(), target.getUTCMonth(), target.getUTCDate());
+  const startOfCurrent = Date.UTC(current.getUTCFullYear(), current.getUTCMonth(), current.getUTCDate());
+  return Math.round((startOfTarget - startOfCurrent) / 86400000);
 }
 
 export function isEventToday(date: string): boolean {

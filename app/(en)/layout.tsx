@@ -8,10 +8,12 @@ const title = "Tinerii lui Dumnezeu UK — Young people united in Christ";
 const description =
   "Every two months, young people from Romanian Baptist churches across the UK gather for fellowship, worship and God's Word.";
 
-// Pages here render date-based text (event countdowns, "today" banners) from
-// the server clock. Without this, static generation bakes in the build-time
-// date and it never updates until the next deploy — revalidate hourly instead.
-export const revalidate = 3600;
+// Pages here render date-based text (event countdowns) from the server clock,
+// so static generation would otherwise bake in the build-time date forever.
+// A daily cron hits /api/cron/revalidate-events right after UTC midnight to
+// refresh them precisely when the day changes; this is just a safety-net
+// fallback in case that cron ever fails to run.
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
